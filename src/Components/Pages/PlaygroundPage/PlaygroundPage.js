@@ -1,36 +1,28 @@
-import React, {Component} from "react";
+import React, {useState} from "react";
 import "./style.css";
 
-export default class PlaygroundPage extends Component {
 
-    state = {
-        amount: 0,
-    };
+export default () => {
 
-    changeAmount = (n) => {
-        let {amount} = this.state;
-        console.log("baba", n);
-        amount += n;
+    const [amountState, setAmount] = useState(0);
 
-        if (amount >= 0) {
-            this.setState({amount});
+    const changeAmount = (n) => {
+        const updatedAmount = amountState + n;
+
+        if (updatedAmount >= 0) {
+            setAmount(updatedAmount);
         }
     };
 
-
-    render() {
-        const {amount} = this.state;
-
-        return (
-            <div className="playgroundPage">
-                <div className="condition">
-                    <p>Give me {amount} dollars, and I will do what you want!</p>
-                    <div className="buttonsWrapper">
-                        <button onClick={() => this.changeAmount.call(this, -1)}>-</button>
-                        <button onClick={() => this.changeAmount.call(this, 1)}>+</button>
-                    </div>
+    return (
+        <div className="playgroundPage">
+            <div className="condition">
+                <p>Give me {amountState} dollars, and I will do what you want!</p>
+                <div className="buttonsWrapper">
+                    <button onClick={() => changeAmount(-1)}>-</button>
+                    <button onClick={() => changeAmount(1)}>+</button>
                 </div>
             </div>
-        );
-    }
+        </div>
+    );
 };
