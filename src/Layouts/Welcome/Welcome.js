@@ -3,7 +3,7 @@ import "./style.scss";
 
 export default (props) => {
 
-    const [showTooltipState, setShowTooltip] = useState(false);
+    const [showTooltipState, setShowTooltip] = useState(true);
     const tooltip = (
         <span
             className="tooltip primary-color"

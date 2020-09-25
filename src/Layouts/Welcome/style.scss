@@ -1,54 +1,56 @@
 .welcome {
-    position: relative;
-    padding: 40px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: 0.6s ease-out;
-}
+  width: fit-content;
+  padding: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.6s ease-out;
 
-.welcome.goUp {
+  &.goUp {
     transform: translateY(-90px);
-}
+    flex-direction: row;
+    padding-left: 200px;
 
-.welcome-text {
+  }
+
+  .welcome-text {
     margin-bottom: 15px;
     font-size: 22px;
     text-align: center;
-}
+  }
 
-.welcome-input {
+  .welcome-input {
     box-shadow: none;
     border: 0;
     border-bottom: 1px solid #ff0083;
-}
 
-.welcome-input:focus {
-    outline: none;
-}
+    &:focus {
+      outline: none;
+    }
 
-.welcome-input::placeholder {
-    color: #ff0083;
-    opacity: 0.5;
-}
+    &::placeholder {
+      color: #ff0083;
+      opacity: 0.5;
+    }
+  }
 
-
-.welcome-statement {
+  .welcome-statement {
     text-transform: capitalize;
     font-weight: bold;
+    margin-right: 15px;
+  }
 }
+
 
 .tooltip {
-    position: absolute;
-    top: 40px;
-    left: 100px;
-    width: 200px;
-    display: inline-block;
-    font-size: 12px;
-    opacity: 0.7;
-    transition: 0.2s;
+  width: 200px;
+  display: inline-block;
+  font-size: 12px;
+  opacity: 0.7;
+  transition: 0.2s;
+
+  &:before {
+    content: "- ";
+  }
 }
 
-.tooltip:before {
-    content: "- ";
-}
