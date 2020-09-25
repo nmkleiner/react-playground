@@ -6,7 +6,7 @@ import PlaygroundPage from "./Pages/PlaygroundPage/PlaygroundPage";
 
 function App() {
     return (
-        <div>
+        <div className="app">
             <Header/>
             <PlaygroundPage/>
         </div>
