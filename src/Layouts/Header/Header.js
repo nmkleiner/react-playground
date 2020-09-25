@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./style.scss";
 import Logo from "../../Components/Logo/Logo";
 import Heading from "../../Components/Heading/Heading";
 

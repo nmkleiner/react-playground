@@ -1,0 +1,54 @@
+.welcome {
+    position: relative;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.6s ease-out;
+}
+
+.welcome.goUp {
+    transform: translateY(-90px);
+}
+
+.welcome-text {
+    margin-bottom: 15px;
+    font-size: 22px;
+    text-align: center;
+}
+
+.welcome-input {
+    box-shadow: none;
+    border: 0;
+    border-bottom: 1px solid #ff0083;
+}
+
+.welcome-input:focus {
+    outline: none;
+}
+
+.welcome-input::placeholder {
+    color: #ff0083;
+    opacity: 0.5;
+}
+
+
+.welcome-statement {
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.tooltip {
+    position: absolute;
+    top: 40px;
+    left: 100px;
+    width: 200px;
+    display: inline-block;
+    font-size: 12px;
+    opacity: 0.7;
+    transition: 0.2s;
+}
+
+.tooltip:before {
+    content: "- ";
+}

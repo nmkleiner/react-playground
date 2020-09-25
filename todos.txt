@@ -1,0 +1,15 @@
+-put global styles in Assets directory
+-use scss vars for color management
+-get better buttons for salary expectations (font awesome? better backgroundColor? cleaner look?)
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-

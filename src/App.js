@@ -1,7 +1,8 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import Header from "./Layouts/Header/Header";
-import PlaygroundPage from "./Components/Pages/PlaygroundPage/PlaygroundPage";
+import PlaygroundPage from "./Pages/PlaygroundPage/PlaygroundPage";
+
 
 function App() {
     return (
