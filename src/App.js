@@ -9,7 +9,7 @@ const App = () => {
 
     const [nameState, setNameState] = useState("noam");
     const [salaryAmountState, setSalaryAmount] = useState(18);
-    const [salaryChosenState, setSalaryChosen] = useState(false);
+    const [salaryChosenState, setSalaryChosen] = useState(true);
 
     const setName = debounce((name) => {
         setNameState(name);

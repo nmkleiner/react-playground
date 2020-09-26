@@ -1,0 +1,49 @@
+.radio-button-wrapper {
+
+  input {
+    position: absolute;
+    left: -9999px;
+  }
+
+  label {
+    text-transform: uppercase;
+  }
+
+  .custom-radio-button {
+    display: block;
+    width: 23px;
+    height: 23px;
+    background-color: white;
+    margin-right: 10px;
+    border-radius: 50%;
+    position: relative;
+    transition: .3s;
+    border: 1px solid #4a4a4a;
+    box-shadow: inset 1px 1px 0 0 #ff0083;
+
+    .inner-circle {
+      position: absolute;
+      top: 10.5px;
+      left: 10.5px;
+
+      display: block;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      transition: .4s;
+    }
+  }
+
+  &.checked {
+    .custom-radio-button {
+
+      .inner-circle {
+        background-color: #ff0083;
+        width: 11px;
+        height: 11px;
+        top: 6px;
+        left: 6px;
+      }
+    }
+  }
+}

@@ -7,8 +7,6 @@ import ActionButton from "../../../Components/ActionButton/ActionButton";
 
 export default (props) => {
     const {setSalaryChosen, salaryAmount, setSalary} = props;
-    const minSalary = 16;
-    const maxSalary = 20;
 
     const changeAmount = (n) => {
         const updatedAmount = salaryAmount + n;
@@ -19,6 +17,8 @@ export default (props) => {
     };
 
 
+    const minSalary = 16;
+    const maxSalary = 20;
     const validSalary = salaryAmount >= minSalary && salaryAmount < maxSalary;
     const actionButtonClick = validSalary ? () => setSalaryChosen(true) : () => null;
 

@@ -3,6 +3,7 @@ import "./style.scss";
 import SalaryExpectation from "../../Layouts/Stages/SalaryExpectation/SalaryExpectation";
 import GetName from "../../Layouts/Stages/GetName/GetName";
 import StagesList from "../../Layouts/StagesList/StagesList";
+import PreferredFramework from "../../Layouts/Stages/PreferredFramework/PreferredFramework";
 
 export default (props) => {
     const {setName, name, salaryChosen, setSalaryChosen, salaryAmount, setSalary} = props;
@@ -22,7 +23,7 @@ export default (props) => {
     const stages = [
         {order: 0, component: getName, isComplete: props.name},
         {order: 1, component: salaryExpectation, isComplete: salaryChosen},
-        {order: 2, component: (<p>ok</p>), isComplete: null},
+        {order: 2, component: (<PreferredFramework/>), isComplete: null},
     ];
 
 
