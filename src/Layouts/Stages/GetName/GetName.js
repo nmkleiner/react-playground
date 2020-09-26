@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-import TextInput from "../../Components/Inputs/TextInput/TextInput";
+import TextInput from "../../../Components/Inputs/TextInput/TextInput";
 
 export default (props) => {
 

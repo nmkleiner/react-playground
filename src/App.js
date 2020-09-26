@@ -7,7 +7,9 @@ import {debounce} from "lodash";
 
 const App = () => {
 
-    const [nameState, setNameState] = useState("");
+    const [nameState, setNameState] = useState("noam");
+    const [salaryAmountState, setSalaryAmount] = useState(18);
+    const [salaryChosenState, setSalaryChosen] = useState(false);
 
     const setName = debounce((name) => {
         setNameState(name);
@@ -26,6 +28,12 @@ const App = () => {
             <PlaygroundPage
                 name={nameState}
                 setName={setName}
+
+                salaryChosen={salaryChosenState}
+                setSalaryChosen={setSalaryChosen}
+
+                salaryAmount={salaryAmountState}
+                setSalary={setSalaryAmount}
             />
         </div>
     );
