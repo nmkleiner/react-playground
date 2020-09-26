@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.scss";
+import TextInput from "../../Components/Inputs/TextInput/TextInput";
 
 export default (props) => {
 
@@ -7,11 +8,9 @@ export default (props) => {
         !props.name &&
         <div className="get-name">
             <p className="welcome-text">Welcome! <br/>What is your name?</p>
-            <input
-                placeholder="name"
-                className="welcome-input primary-color"
-                type="text"
-                onChange={(ev) => props.change(ev.target.value)}
+            <TextInput
+                name="name"
+                change={props.change}
             />
         </div>
     );

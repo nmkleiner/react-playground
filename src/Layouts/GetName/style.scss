@@ -11,19 +11,4 @@
     font-size: 22px;
     text-align: center;
   }
-
-  .welcome-input {
-    box-shadow: none;
-    border: 0;
-    border-bottom: 1px solid #ff0083;
-
-    &:focus {
-      outline: none;
-    }
-
-    &::placeholder {
-      color: #ff0083;
-      opacity: 0.5;
-    }
-  }
 }
