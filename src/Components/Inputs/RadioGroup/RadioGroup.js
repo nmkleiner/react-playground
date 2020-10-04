@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import "./style.scss";
 import RadioButton from "./RadioButton/RadioButton";
 
+
+
 export default (props) => {
     const {radioButtons} = props;
 
@@ -19,6 +21,7 @@ export default (props) => {
                     key={radioButton.id}
                     id={radioButton.id}
                     label={radioButton.label}
+                    icon={radioButton.icon}
                     checked={checkedRadioStates[index]}
                     check={() => setCheckedRadio(index)}
                 />,

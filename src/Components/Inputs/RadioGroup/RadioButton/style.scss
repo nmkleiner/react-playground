@@ -1,5 +1,5 @@
 .radio-button-wrapper {
-  margin-right: 20px;
+  margin-bottom: 12px;
 
   input {
     position: absolute;
@@ -7,9 +7,18 @@
   }
 
   label {
-    text-transform: uppercase;
+    text-transform: capitalize;
     display: flex;
     align-items: center;
+
+    svg {
+      font-size: 28px;
+      margin-right: 8px;
+    }
+
+    .label {
+      font-size: 14px;
+    }
   }
 
   .custom-radio-button {
@@ -36,6 +45,14 @@
   }
 
   &.checked {
+    label {
+      color: darken(#4A4A4A, 20%);
+
+      .label {
+        color: darken(#4A4A4A, 20%);
+      }
+    }
+
     .inner-circle {
       background-color: #ff0083;
 

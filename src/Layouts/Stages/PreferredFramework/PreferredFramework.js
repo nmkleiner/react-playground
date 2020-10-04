@@ -1,12 +1,13 @@
 import React from "react";
 import "./style.scss";
 import RadioGroup from "../../../Components/Inputs/RadioGroup/RadioGroup";
+import {faVuejs, faReact, faAngular} from "@fortawesome/free-brands-svg-icons";
 
 export default () => {
     const radioButtons = [
-        {id: 1, label: "Angular"},
-        {id: 2, label: "react"},
-        {id: 3, label: "vue"},
+        {id: 1, label: "angular", icon: faAngular},
+        {id: 2, label: "react", icon: faReact},
+        {id: 3, label: "vue", icon: faVuejs},
     ];
 
     return (

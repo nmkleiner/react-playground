@@ -1,8 +1,9 @@
 import React from "react";
 import "./style.scss";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 export default (props) => {
-    const {label, checked, id, check} = props;
+    const {label, checked, id, check, icon} = props;
 
     const wrapperClasses = [
         "radio-button-wrapper",
@@ -22,7 +23,8 @@ export default (props) => {
                 <span onClick={check} className="custom-radio-button pointer">
                     <span className="inner-circle"></span>
                 </span>
-                <span>{label}</span>
+                <FontAwesomeIcon icon={icon}></FontAwesomeIcon>
+                <span className="label">{label}</span>
             </label>
         </div>
     );
