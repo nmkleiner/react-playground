@@ -7,7 +7,7 @@ import moment from "moment";
 
 const dateFormat = "DD/MM/YY";
 
-export default class StartDate extends Component {
+export default class GetStartDate extends Component {
 
     constructor(props) {
         super(props);

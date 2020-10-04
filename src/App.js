@@ -36,6 +36,10 @@ const App = () => {
         incrementCurrentStage();
     };
 
+    const setStartDate = (date) => {
+        setStartDateState(date);
+        incrementCurrentStage();
+    };
 
     return (
         <div className="app">
@@ -58,7 +62,7 @@ const App = () => {
                 setFrameworkSelected={setFrameworkSelected}
 
                 startDate={startDateState}
-                setStartDate={setStartDateState}
+                setStartDate={setStartDate}
             />
 
             <pre>
@@ -68,6 +72,7 @@ const App = () => {
                 framework: {frameworkState}<br/>
                 frameworkSelected: {frameworkSelectedState.toString()}<br/>
                 startDate: {startDateState}<br/>
+                experience:
             </pre>
         </div>
     );

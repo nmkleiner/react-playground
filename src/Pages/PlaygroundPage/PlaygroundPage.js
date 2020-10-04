@@ -1,10 +1,11 @@
 import React from "react";
 import "./style.scss";
-import {SalaryExpectation} from "../../Layouts/Stages/SalaryExpectation/SalaryExpectation";
+import {GetSalaryExpectation} from "../../Layouts/Stages/GetSalaryExpectation/GetSalaryExpectation";
 import {GetName} from "../../Layouts/Stages/GetName/GetName";
-import {PreferredFramework} from "../../Layouts/Stages/PreferredFramework/PreferredFramework";
+import {GetPreferredFramework} from "../../Layouts/Stages/GetPreferredFramework/GetPreferredFramework";
 import {NavigationButtons} from "../../Layouts/NavigationButtons/NavigationButtons";
-import StartDate from "../../Layouts/Stages/StartDate/StartDate";
+import GetStartDate from "../../Layouts/Stages/GetStartDate/GetStartDate";
+import {GetExperience} from "../../Layouts/Stages/GetExperience/GetExperience";
 
 
 export const PlaygroundPage = (props) => {
@@ -29,22 +30,26 @@ export const PlaygroundPage = (props) => {
         change={setName}
     />);
 
-    const salaryExpectationComponent = (<SalaryExpectation
+    const salaryExpectationComponent = (<GetSalaryExpectation
         setSalarySelected={setSalarySelected}
         salaryAmount={salaryAmount}
         setSalary={setSalary}
     />);
 
-    const preferredFrameworkComponent = (<PreferredFramework
+    const preferredFrameworkComponent = (<GetPreferredFramework
         framework={framework}
         setFramework={setFramework}
         frameworkSelected={frameworkSelected}
         setFrameworkSelected={setFrameworkSelected}
     />);
 
-    const startDateComponent = (<StartDate
+    const startDateComponent = (<GetStartDate
         startDate={startDate}
         setStartDate={setStartDate}
+    />);
+
+    const getExperienceComponent = (<GetExperience
+
     />);
 
 
