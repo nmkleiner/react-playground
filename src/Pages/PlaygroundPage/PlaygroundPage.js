@@ -1,11 +1,13 @@
 import React from "react";
 import "./style.scss";
-import SalaryExpectation from "../../Layouts/Stages/SalaryExpectation/SalaryExpectation";
-import GetName from "../../Layouts/Stages/GetName/GetName";
-import PreferredFramework from "../../Layouts/Stages/PreferredFramework/PreferredFramework";
-import NavigationButtons from "../../Layouts/NavigationButtons/NavigationButtons";
+import {SalaryExpectation} from "../../Layouts/Stages/SalaryExpectation/SalaryExpectation";
+import {GetName} from "../../Layouts/Stages/GetName/GetName";
+import {PreferredFramework} from "../../Layouts/Stages/PreferredFramework/PreferredFramework";
+import {NavigationButtons} from "../../Layouts/NavigationButtons/NavigationButtons";
+import StartDate from "../../Layouts/Stages/StartDate/StartDate";
 
-export default (props) => {
+
+export const PlaygroundPage = (props) => {
     const {
         currentStage,
         setCurrentStage,
@@ -18,34 +20,40 @@ export default (props) => {
         setFramework,
         frameworkSelected,
         setFrameworkSelected,
+        startDate,
+        setStartDate,
     } = props;
 
-    const getName = (<GetName
+    const getNameComponent = (<GetName
         name={name}
         change={setName}
     />);
 
-    const salaryExpectation = (<SalaryExpectation
+    const salaryExpectationComponent = (<SalaryExpectation
         setSalarySelected={setSalarySelected}
         salaryAmount={salaryAmount}
         setSalary={setSalary}
     />);
 
-    const preferredFramework = (<PreferredFramework
+    const preferredFrameworkComponent = (<PreferredFramework
         framework={framework}
         setFramework={setFramework}
         frameworkSelected={frameworkSelected}
         setFrameworkSelected={setFrameworkSelected}
     />);
 
+    const startDateComponent = (<StartDate
+        startDate={startDate}
+        setStartDate={setStartDate}
+    />);
+
 
     const stages = [
-        getName,
-        salaryExpectation,
-        preferredFramework,
-        ("papa"),
+        getNameComponent,
+        salaryExpectationComponent,
+        preferredFrameworkComponent,
+        startDateComponent,
     ];
-
 
     const currentStageComponent = stages[currentStage];
 
@@ -55,6 +63,7 @@ export default (props) => {
                 <div className="column stage-container">
                     {currentStageComponent}
                 </div>
+
                 <NavigationButtons
                     currentStage={currentStage}
                     setCurrentStage={setCurrentStage}

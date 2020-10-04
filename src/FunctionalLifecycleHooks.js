@@ -17,10 +17,16 @@ const lifecycleHooks = () => {
     }, [state1, state2]);
 
     useEffect(() => {
-        console.log("do something on initialization");
+        console.log("do something on mounting");
     }, []);
 
     useEffect(() => {
         console.log("do something on every change");
     });
+
+    useEffect(() => {
+        return () => {
+            console.log("do something on unmounting");
+        };
+    }, []);
 };

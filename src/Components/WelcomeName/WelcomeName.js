@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./style.scss";
 
-export default (props) => {
+export const WelcomeName = (props) => {
     const {name} = props;
 
     const [showTooltipState, setShowTooltip] = useState(false);

@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 
-export default (props) => {
+export const NavigationButtons = (props) => {
     const {currentStage, setCurrentStage} = props;
 
     const backButton = currentStage > 0 && (
@@ -16,4 +16,4 @@ export default (props) => {
             {backButton}
         </div>
     );
-}
+};

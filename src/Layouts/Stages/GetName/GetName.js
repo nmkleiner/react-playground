@@ -1,9 +1,8 @@
 import React from "react";
 import "./style.scss";
-import TextInput from "../../../Components/Inputs/TextInput/TextInput";
+import {TextInput} from "../../../Components/Inputs/TextInput/TextInput";
 
-export default (props) => {
-
+export const GetName = (props) => {
     return (
         <div className="get-name">
             <p className="welcome-text">Welcome! <br/>What is your name?</p>
@@ -13,5 +12,5 @@ export default (props) => {
             />
         </div>
     );
-}
+};
 

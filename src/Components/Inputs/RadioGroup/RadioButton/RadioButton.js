@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-export default (props) => {
+export const RadioButton = (props) => {
     const {label, checked, id, check, icon} = props;
 
     const wrapperClasses = [

@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import "./style.scss";
-import RadioButton from "./RadioButton/RadioButton";
+import {RadioButton} from "./RadioButton/RadioButton";
 
 
-export default (props) => {
+export const RadioGroup = (props) => {
     const {radioButtons, selectedValue, select} = props;
 
     const [checkedRadioStates, setCheckedRadioStates] = useState(radioButtons.map(() => false));
@@ -11,7 +11,9 @@ export default (props) => {
     const setCheckedRadioByIndex = (radioIndex) => {
         const updatedCheckedRadioStates = checkedRadioStates.map((_, index) => index === radioIndex);
         setCheckedRadioStates(updatedCheckedRadioStates);
+    };
 
+    const selectRadioButton = (radioIndex) => {
         const selectedRadioButton = radioButtons[radioIndex];
         select(selectedRadioButton.id);
     };
@@ -32,9 +34,12 @@ export default (props) => {
                     label={radioButton.label}
                     icon={radioButton.icon}
                     checked={checkedRadioStates[index]}
-                    check={() => setCheckedRadioByIndex(index)}
+                    check={() => {
+                        setCheckedRadioByIndex(index);
+                        selectRadioButton(index);
+                    }}
                 />,
             )}
         </div>
     );
-}
+};

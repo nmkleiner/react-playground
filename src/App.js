@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import "./App.scss";
-import Header from "./Layouts/Header/Header";
-import PlaygroundPage from "./Pages/PlaygroundPage/PlaygroundPage";
+import {Header} from "./Layouts/Header/Header";
+import {PlaygroundPage} from "./Pages/PlaygroundPage/PlaygroundPage";
 import {debounce} from "lodash";
 
 
@@ -12,10 +12,12 @@ const App = () => {
     const [nameState, setNameState] = useState("");
 
     const [salaryAmountState, setSalaryAmountState] = useState(18);
-    const [salarySelectedState, setSalarySelectedState] = useState(true);
+    const [salarySelectedState, setSalarySelectedState] = useState(false);
 
     const [frameworkState, setFrameworkState] = useState("");
     const [frameworkSelectedState, setFrameworkSelectedState] = useState(false);
+
+    const [startDateState, setStartDateState] = useState("");
 
     const incrementCurrentStage = () => setCurrentStage(currentStageState + 1);
 
@@ -54,6 +56,9 @@ const App = () => {
                 setFramework={setFrameworkState}
                 frameworkSelected={frameworkSelectedState}
                 setFrameworkSelected={setFrameworkSelected}
+
+                startDate={startDateState}
+                setStartDate={setStartDateState}
             />
 
             <pre>
@@ -62,6 +67,7 @@ const App = () => {
                 salaryAmount: {salaryAmountState}<br/>
                 framework: {frameworkState}<br/>
                 frameworkSelected: {frameworkSelectedState.toString()}<br/>
+                startDate: {startDateState}<br/>
             </pre>
         </div>
     );

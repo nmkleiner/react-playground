@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.scss";
-import RadioGroup from "../../../Components/Inputs/RadioGroup/RadioGroup";
+import {RadioGroup} from "../../../Components/Inputs/RadioGroup/RadioGroup";
 import {faAngular, faReact, faVuejs} from "@fortawesome/free-brands-svg-icons";
 
-export default (props) => {
+export const PreferredFramework = (props) => {
     const {framework, setFramework, setFrameworkSelected} = props;
 
     const radioButtons = [
@@ -27,4 +27,4 @@ export default (props) => {
             />
         </div>
     );
-}
+};

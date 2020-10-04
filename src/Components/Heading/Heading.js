@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 
-export default props => {
+export const Heading = (props) => {
     return (
         <div className="heading">{props.text}</div>
     );

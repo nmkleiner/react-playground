@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import "./style.scss";
-import InputLabel from "../InputLabel/InputLabel";
+import {InputLabel} from "../InputLabel/InputLabel";
 
-export default (props) => {
+export const TextInput = (props) => {
 
     const [labelFloatingState, setLabelFloating] = useState(false);
 
