@@ -1,8 +1,7 @@
 import React from "react";
 import "./style.scss";
 import RadioGroup from "../../../Components/Inputs/RadioGroup/RadioGroup";
-import {faVuejs, faReact, faAngular} from "@fortawesome/free-brands-svg-icons";
-import ActionButton from "../../../Components/ActionButton/ActionButton";
+import {faAngular, faReact, faVuejs} from "@fortawesome/free-brands-svg-icons";
 
 export default (props) => {
     const {framework, setFramework, setFrameworkSelected} = props;

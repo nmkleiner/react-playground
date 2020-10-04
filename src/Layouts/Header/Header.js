@@ -7,10 +7,8 @@ import WelcomeName from "../../Components/WelcomeName/WelcomeName";
 
 export default (props) => {
     const heading = "React Playground";
-    const welcomeName = props.name && <WelcomeName
-        name={props.name}
-        click={props.click}
-    />;
+    const welcomeName = props.name && <WelcomeName name={props.name}/>;
+
     return (
         <header className="header">
             <div className="row">

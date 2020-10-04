@@ -12,37 +12,32 @@ const App = () => {
     const [nameState, setNameState] = useState("");
 
     const [salaryAmountState, setSalaryAmountState] = useState(18);
-    const [salarySelectedState, setSalarySelectedState] = useState(false);
+    const [salarySelectedState, setSalarySelectedState] = useState(true);
 
     const [frameworkState, setFrameworkState] = useState("");
     const [frameworkSelectedState, setFrameworkSelectedState] = useState(false);
 
+    const incrementCurrentStage = () => setCurrentStage(currentStageState + 1);
 
     const setName = debounce((name) => {
         setNameState(name);
-        setCurrentStage(currentStageState + 1);
+        incrementCurrentStage();
     }, 800);
 
     const setFrameworkSelected = (isFrameworkSelected) => {
         setFrameworkSelectedState(isFrameworkSelected);
-        setCurrentStage(currentStageState + 1);
+        incrementCurrentStage();
     };
 
     const setSalarySelected = (isSalarySelected) => {
         setSalarySelectedState(isSalarySelected);
-        setCurrentStage(currentStageState + 1);
+        incrementCurrentStage();
     };
 
-    const resetName = () => {
-        setNameState("");
-    };
 
     return (
         <div className="app">
-            <Header
-                name={nameState}
-                click={resetName}
-            />
+            <Header name={nameState}/>
             <PlaygroundPage
                 currentStage={currentStageState}
                 setCurrentStage={setCurrentStage}

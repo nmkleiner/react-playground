@@ -11,7 +11,6 @@ export default (props) => {
         setCurrentStage,
         setName,
         name,
-        salarySelected,
         setSalarySelected,
         salaryAmount,
         setSalary,
