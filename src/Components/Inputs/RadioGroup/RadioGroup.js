@@ -3,16 +3,25 @@ import "./style.scss";
 import RadioButton from "./RadioButton/RadioButton";
 
 
-
 export default (props) => {
-    const {radioButtons} = props;
+    const {radioButtons, selectedValue, select} = props;
 
     const [checkedRadioStates, setCheckedRadioStates] = useState(radioButtons.map(() => false));
 
-    const setCheckedRadio = (radioIndex) => {
+    const setCheckedRadioByIndex = (radioIndex) => {
         const updatedCheckedRadioStates = checkedRadioStates.map((_, index) => index === radioIndex);
         setCheckedRadioStates(updatedCheckedRadioStates);
+
+        const selectedRadioButton = radioButtons[radioIndex];
+        select(selectedRadioButton.id);
     };
+
+    if (selectedValue) {
+        if (checkedRadioStates.every((isChecked) => !isChecked)) {
+            const selectedRadioIndex = radioButtons.findIndex((radioButton) => radioButton.id === selectedValue);
+            setCheckedRadioByIndex(selectedRadioIndex);
+        }
+    }
 
     return (
         <div className="radio-group">
@@ -23,7 +32,7 @@ export default (props) => {
                     label={radioButton.label}
                     icon={radioButton.icon}
                     checked={checkedRadioStates[index]}
-                    check={() => setCheckedRadio(index)}
+                    check={() => setCheckedRadioByIndex(index)}
                 />,
             )}
         </div>

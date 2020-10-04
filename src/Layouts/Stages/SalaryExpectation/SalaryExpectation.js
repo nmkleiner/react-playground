@@ -6,7 +6,7 @@ import RoundButton from "../../../Components/RoundButton/RoundButton";
 import ActionButton from "../../../Components/ActionButton/ActionButton";
 
 export default (props) => {
-    const {setSalaryChosen, salaryAmount, setSalary} = props;
+    const {setSalarySelected, salaryAmount, setSalary} = props;
 
     const changeAmount = (n) => {
         const updatedAmount = salaryAmount + n;
@@ -19,7 +19,7 @@ export default (props) => {
     const minSalary = 16;
     const maxSalary = 20;
     const validSalary = salaryAmount >= minSalary && salaryAmount < maxSalary;
-    const actionButtonClick = () => setSalaryChosen(true);
+    const actionButtonClick = () => setSalarySelected(true);
 
 
     let actionButtonText = "ok";

@@ -23,7 +23,7 @@ export default (props) => {
                 <span onClick={check} className="custom-radio-button pointer">
                     <span className="inner-circle"></span>
                 </span>
-                <FontAwesomeIcon icon={icon}></FontAwesomeIcon>
+                {icon && <FontAwesomeIcon icon={icon}/>}
                 <span className="label">{label}</span>
             </label>
         </div>

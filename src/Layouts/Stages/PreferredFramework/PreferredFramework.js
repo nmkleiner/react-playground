@@ -2,18 +2,30 @@ import React from "react";
 import "./style.scss";
 import RadioGroup from "../../../Components/Inputs/RadioGroup/RadioGroup";
 import {faVuejs, faReact, faAngular} from "@fortawesome/free-brands-svg-icons";
+import ActionButton from "../../../Components/ActionButton/ActionButton";
 
-export default () => {
+export default (props) => {
+    const {framework, setFramework, setFrameworkSelected} = props;
+
     const radioButtons = [
-        {id: 1, label: "angular", icon: faAngular},
-        {id: 2, label: "react", icon: faReact},
-        {id: 3, label: "vue", icon: faVuejs},
+        {id: "angular", label: "angular", icon: faAngular},
+        {id: "react", label: "react", icon: faReact},
+        {id: "vue", label: "vue", icon: faVuejs},
     ];
+
+    const select = (framework) => {
+        setFramework(framework);
+        setFrameworkSelected(true);
+    };
 
     return (
         <div className="preferred-framework">
             <span className="message">Which is your preferred frontend framework/library?</span>
-            <RadioGroup radioButtons={radioButtons}/>
+            <RadioGroup
+                selectedValue={framework}
+                select={select}
+                radioButtons={radioButtons}
+            />
         </div>
     );
 }

@@ -2,11 +2,24 @@ import React from "react";
 import "./style.scss";
 import SalaryExpectation from "../../Layouts/Stages/SalaryExpectation/SalaryExpectation";
 import GetName from "../../Layouts/Stages/GetName/GetName";
-import StagesList from "../../Layouts/StagesList/StagesList";
 import PreferredFramework from "../../Layouts/Stages/PreferredFramework/PreferredFramework";
+import NavigationButtons from "../../Layouts/NavigationButtons/NavigationButtons";
 
 export default (props) => {
-    const {setName, name, salaryChosen, setSalaryChosen, salaryAmount, setSalary} = props;
+    const {
+        currentStage,
+        setCurrentStage,
+        setName,
+        name,
+        salarySelected,
+        setSalarySelected,
+        salaryAmount,
+        setSalary,
+        framework,
+        setFramework,
+        frameworkSelected,
+        setFrameworkSelected,
+    } = props;
 
     const getName = (<GetName
         name={name}
@@ -14,22 +27,40 @@ export default (props) => {
     />);
 
     const salaryExpectation = (<SalaryExpectation
-        setSalaryChosen={setSalaryChosen}
+        setSalarySelected={setSalarySelected}
         salaryAmount={salaryAmount}
         setSalary={setSalary}
     />);
 
+    const preferredFramework = (<PreferredFramework
+        framework={framework}
+        setFramework={setFramework}
+        frameworkSelected={frameworkSelected}
+        setFrameworkSelected={setFrameworkSelected}
+    />);
+
 
     const stages = [
-        {order: 0, component: getName, isComplete: props.name},
-        {order: 1, component: salaryExpectation, isComplete: salaryChosen},
-        {order: 2, component: (<PreferredFramework/>), isComplete: null},
+        getName,
+        salaryExpectation,
+        preferredFramework,
+        ("papa"),
     ];
 
 
+    const currentStageComponent = stages[currentStage];
+
     return (
         <div className="playgroundPage">
-            <StagesList stages={stages}/>
+            <div className="stages-container">
+                <div className="column stage-container">
+                    {currentStageComponent}
+                </div>
+                <NavigationButtons
+                    currentStage={currentStage}
+                    setCurrentStage={setCurrentStage}
+                />
+            </div>
         </div>
     );
 };

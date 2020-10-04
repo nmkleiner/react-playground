@@ -1,0 +1,22 @@
+
+.navigation-buttons {
+  display: flex;
+  justify-content: start;
+  width: 330px;
+
+  .navigation-button {
+    border: none;
+    background-color: transparent;
+    color: #ff0083;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 16px;
+    transition: 0.3s ease-in-out;
+
+
+    &:hover {
+      color: #b40060;
+    }
+  }
+}

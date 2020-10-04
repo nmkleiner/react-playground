@@ -5,7 +5,6 @@ import TextInput from "../../../Components/Inputs/TextInput/TextInput";
 export default (props) => {
 
     return (
-        !props.name &&
         <div className="get-name">
             <p className="welcome-text">Welcome! <br/>What is your name?</p>
             <TextInput

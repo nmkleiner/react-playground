@@ -45,14 +45,6 @@
   }
 
   &.checked {
-    label {
-      color: darken(#4A4A4A, 20%);
-
-      .label {
-        color: darken(#4A4A4A, 20%);
-      }
-    }
-
     .inner-circle {
       background-color: #ff0083;
 
@@ -69,6 +61,16 @@
 
         width: 100%;
         height: 100%;
+      }
+    }
+  }
+
+  &.checked, &:hover {
+    label {
+      color: darken(#4A4A4A, 20%);
+
+      .label {
+        color: darken(#4A4A4A, 20%);
       }
     }
   }
