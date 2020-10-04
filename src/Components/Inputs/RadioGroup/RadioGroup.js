@@ -9,18 +9,20 @@ export default (props) => {
 
     const setCheckedRadio = (radioIndex) => {
         const updatedCheckedRadioStates = checkedRadioStates.map((_, index) => index === radioIndex);
-        setCheckedRadioStates(updatedCheckedRadioStates)
+        setCheckedRadioStates(updatedCheckedRadioStates);
     };
 
     return (
         <div className="radio-group">
-            {radioButtons.map((radioButton, index) => <RadioButton
-                key={radioButton.id}
-                id={radioButton.id}
-                label={radioButton.label}
-                checked={checkedRadioStates[index]}
-                check={() => setCheckedRadio(index)}
-            />)}
+            {radioButtons.map((radioButton, index) =>
+                <RadioButton
+                    key={radioButton.id}
+                    id={radioButton.id}
+                    label={radioButton.label}
+                    checked={checkedRadioStates[index]}
+                    check={() => setCheckedRadio(index)}
+                />,
+            )}
         </div>
     );
 }

@@ -16,18 +16,19 @@ export default (props) => {
         }
     };
 
-
     const minSalary = 16;
     const maxSalary = 20;
     const validSalary = salaryAmount >= minSalary && salaryAmount < maxSalary;
-    const actionButtonClick = validSalary ? () => setSalaryChosen(true) : () => null;
+    const actionButtonClick = () => setSalaryChosen(true);
 
 
     let actionButtonText = "ok";
-    if (salaryAmount < minSalary) {
-        actionButtonText = "hmm.. too little";
-    } else if (salaryAmount >= maxSalary) {
-        actionButtonText = "hmm.. too much";
+    if (!validSalary) {
+        if (salaryAmount < minSalary) {
+            actionButtonText = "hmm.. too little";
+        } else if (salaryAmount >= maxSalary) {
+            actionButtonText = "hmm.. too much";
+        }
     }
 
     return (
@@ -46,7 +47,9 @@ export default (props) => {
                 </div>
             </div>
 
-            <ActionButton click={actionButtonClick}>
+            <ActionButton
+                disabled={!validSalary}
+                click={actionButtonClick}>
                 {actionButtonText}
             </ActionButton>
         </div>

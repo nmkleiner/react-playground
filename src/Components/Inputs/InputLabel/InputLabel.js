@@ -2,14 +2,13 @@ import React from "react";
 import "./style.scss";
 
 export default (props) => {
-    let className = "input-label";
-
-    if (props.isFloating) {
-        className += " floating";
-    }
+    let labelClasses = [
+        "input-label",
+        props.isFloating ? "floating" : ""
+    ].join(" ");
 
     return (
-        <div className={className}>
+        <div className={labelClasses}>
             {props.name}
         </div>
     );

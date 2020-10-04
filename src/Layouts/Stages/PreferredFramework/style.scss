@@ -1,0 +1,9 @@
+.preferred-framework {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .message {
+    margin-bottom: 30px;
+  }
+}

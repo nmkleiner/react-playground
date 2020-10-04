@@ -24,6 +24,12 @@
     background-color: #b40060;
   }
 
+  &:disabled {
+    background-color: darken(#b40060, 30%);
+    box-shadow: none;
+    cursor: default;
+  }
+
   &:focus {
     outline: 0;
   }

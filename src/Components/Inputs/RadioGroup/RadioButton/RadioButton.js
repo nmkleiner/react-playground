@@ -3,13 +3,16 @@ import "./style.scss";
 
 export default (props) => {
     const {label, checked, id, check} = props;
-    const wrapperClassNames = "radio-button-wrapper" + (checked ? " checked" : "");
+
+    const wrapperClasses = [
+        "radio-button-wrapper",
+        checked ? "checked" : "",
+    ].join(" ");
+
 
     return (
-        <div className={wrapperClassNames}>
+        <div className={wrapperClasses}>
             <label htmlFor={id}>
-                {label}
-                {" " + checked.toString()}
                 <input
                     name={id}
                     type="radio"
@@ -19,6 +22,7 @@ export default (props) => {
                 <span onClick={check} className="custom-radio-button pointer">
                     <span className="inner-circle"></span>
                 </span>
+                <span>{label}</span>
             </label>
         </div>
     );
