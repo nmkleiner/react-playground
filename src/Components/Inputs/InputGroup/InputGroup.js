@@ -6,7 +6,7 @@ export const InputGroup = (props) => {
     const {name, type, change, children} = props;
     return (
         <div className={classes.InputGroup}>
-            {children}
+            <p className={classes.message}>{children}</p>
             <InputField
                 name={name}
                 type={type}

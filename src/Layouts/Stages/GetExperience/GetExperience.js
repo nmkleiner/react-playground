@@ -1,17 +1,18 @@
 import React from "react";
-import classes from "./style.module.scss";
-import {InputField} from "../../../Components/Inputs/InputField/InputField";
+import {InputGroup} from "../../../Components/Inputs/InputGroup/InputGroup";
 
 export const GetExperience = (props) => {
+    const name = "experience";
+    const type = "number";
+
+
     return (
-        <div className={classes.GetExperience}>
-            {props.children}
-            <p className="welcome-text">Welcome! <br/>What is your name?</p>
-            <InputField
-                name="experience"
-                type="number"
-                change={props.change}
-            />
-        </div>
+        <InputGroup
+            name={name}
+            type={type}
+            change={props.change}
+        >
+            How many years of experience do you have?
+        </InputGroup>
     );
 };

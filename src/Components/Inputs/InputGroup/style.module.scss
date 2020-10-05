@@ -1,14 +1,14 @@
 .InputGroup {
-  width: fit-content;
-  padding: 40px 0;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: transform 0.6s ease-out;
 
   .message {
-    margin-bottom: 15px;
-    font-size: 22px;
-    text-align: center;
+    margin-bottom: 18px;
+    font-size: 16px;
+    text-align: left;
+    margin-left: 15px;
   }
 }

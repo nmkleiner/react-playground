@@ -1,5 +1,4 @@
 import React from "react";
-import classes from "./style.module.scss";
 import {InputGroup} from "../../../Components/Inputs/InputGroup/InputGroup";
 
 export const GetName = (props) => {
@@ -9,7 +8,7 @@ export const GetName = (props) => {
             type="text"
             change={props.change}
         >
-            <p className={classes.welcomeText}>Welcome! <br/>What is your name?</p>
+            Welcome! What is your name?
         </InputGroup>
 
     );
