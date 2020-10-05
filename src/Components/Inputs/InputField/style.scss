@@ -1,5 +1,6 @@
 .input-group {
   position: relative;
+
   .text-input {
     box-shadow: none;
     border: 0;
@@ -9,4 +10,17 @@
     padding-left: 20px;
     padding-bottom: 5px;
   }
+
+  input[type=number] {
+    -moz-appearance: textfield; /* Firefox */
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none; /* Not Firefox */
+    margin: 0;
+  }
 }
+
+
+

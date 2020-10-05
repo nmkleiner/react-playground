@@ -58,6 +58,7 @@ export const PlaygroundPage = (props) => {
         salaryExpectationComponent,
         preferredFrameworkComponent,
         startDateComponent,
+        getExperienceComponent,
     ];
 
     const currentStageComponent = stages[currentStage];

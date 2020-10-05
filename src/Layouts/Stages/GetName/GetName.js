@@ -1,16 +1,17 @@
 import React from "react";
-import "./style.scss";
-import {TextInput} from "../../../Components/Inputs/TextInput/TextInput";
+import classes from "./style.module.scss";
+import {InputGroup} from "../../../Components/Inputs/InputGroup/InputGroup";
 
 export const GetName = (props) => {
     return (
-        <div className="get-name">
-            <p className="welcome-text">Welcome! <br/>What is your name?</p>
-            <TextInput
-                name="name"
-                change={props.change}
-            />
-        </div>
+        <InputGroup
+            name="name"
+            type="text"
+            change={props.change}
+        >
+            <p className={classes.welcomeText}>Welcome! <br/>What is your name?</p>
+        </InputGroup>
+
     );
 };
 
