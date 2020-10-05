@@ -1,4 +1,4 @@
-.radio-button-wrapper {
+.radioButtonWrapper {
   margin-bottom: 12px;
 
   input {
@@ -21,7 +21,7 @@
     }
   }
 
-  .custom-radio-button {
+  .customRadioButton {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +35,7 @@
     border: 1px solid #4a4a4a;
     box-shadow: inset 1px 1px 0 0 #ff0083;
 
-    .inner-circle {
+    .innerCircle {
       display: block;
       width: 0;
       height: 0;
@@ -45,7 +45,7 @@
   }
 
   &.checked {
-    .inner-circle {
+    .innerCircle {
       background-color: #ff0083;
 
       width: 11px;
@@ -55,7 +55,7 @@
 
   &:hover {
     &:not(.checked) {
-      .inner-circle {
+      .innerCircle {
         background-color: #ff0083;
         opacity: 0.1;
 

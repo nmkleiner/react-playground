@@ -1,31 +1,38 @@
 import React from "react";
-import "./style.scss";
+import classes from "./style.module.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {InputTypes} from "../../../../Enums/InputTypes";
 
 export const RadioButton = (props) => {
     const {label, checked, id, check, icon} = props;
 
     const wrapperClasses = [
-        "radio-button-wrapper",
-        checked ? "checked" : "",
+        classes.radioButtonWrapper,
+        checked ? classes.checked : "",
     ].join(" ");
 
+    const customButtonClasses = [
+        classes.customRadioButton,
+        "pointer",
+    ].join(" ");
+
+    const iconElement = icon && (<FontAwesomeIcon icon={icon}/>);
 
     return (
         <div className={wrapperClasses}>
             <label htmlFor={id}>
                 <input
                     name={id}
-                    type="radio"
+                    type={InputTypes.RADIO}
                     checked={checked}
                     onChange={check}
                 />
-                <span onClick={check} className="custom-radio-button pointer">
-                    <span className="inner-circle"></span>
+                <span onClick={check} className={customButtonClasses}>
+                    <span className={classes.innerCircle}/>
                 </span>
-                {icon && <FontAwesomeIcon icon={icon}/>}
-                <span className="label">{label}</span>
+                {iconElement}
+                <span className={classes.label}>{label}</span>
             </label>
         </div>
     );
-}
+};
