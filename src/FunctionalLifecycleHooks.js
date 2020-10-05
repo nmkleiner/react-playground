@@ -1,6 +1,6 @@
 import React, {Component, useEffect, useState} from "react";
 
-const lifecycleHooks = () => {
+const lifecycleHooks = (props) => {
     const [state1, setState1] = useState("");
     const [state2, setState2] = useState("");
 
@@ -26,7 +26,12 @@ const lifecycleHooks = () => {
 
     useEffect(() => {
         return () => {
-            console.log("do something on unmounting");
+            console.log("do something on un mounting");
         };
     }, []);
+
+    return (<span>bullshit</span>);
 };
+
+// prevent re-rendering when parent component is re-rendering but nothing changed in component
+export default React.memo(lifecycleHooks);

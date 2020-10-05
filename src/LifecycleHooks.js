@@ -26,6 +26,7 @@ class LifecycleHooks extends Component {
     }
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return nextProps.prop !== this.props.prop;
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
