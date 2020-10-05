@@ -1,8 +1,6 @@
 import React from "react";
-import "./style.scss";
+import classes from "./style.module.scss";
 
-export const Heading = (props) => {
-    return (
-        <div className="heading">{props.text}</div>
-    );
-};
+export const Heading = ({text}) => <div className={classes.Heading}>{text}</div>;
+
+
