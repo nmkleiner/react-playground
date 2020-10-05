@@ -4,7 +4,7 @@ import "./style.scss";
 export const InputLabel = (props) => {
     let labelClasses = [
         "input-label",
-        props.isFloating ? "floating" : ""
+        props.isFloating ? "floating" : "",
     ].join(" ");
 
     return (
@@ -12,4 +12,4 @@ export const InputLabel = (props) => {
             {props.name}
         </div>
     );
-}
+};

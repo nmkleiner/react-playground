@@ -26,8 +26,8 @@ export const PlaygroundPage = (props) => {
     } = props;
 
     const getNameComponent = (<GetName
-        name={name}
         change={setName}
+        value={name}
     />);
 
     const salaryExpectationComponent = (<GetSalaryExpectation

@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./style.scss";
 import {InputLabel} from "./InputLabel/InputLabel";
 
 export const InputField = (props) => {
-    const {name, type, change} = props;
+    const {name, type, value, change} = props;
     const [labelFloatingState, setLabelFloating] = useState(false);
 
     const handleFocus = () => {
@@ -13,6 +13,12 @@ export const InputField = (props) => {
     const handleBlur = () => {
         setLabelFloating(false);
     };
+
+    useEffect(() => {
+        if (value !== "") {
+            setLabelFloating(true);
+        }
+    },[]);
 
     return (
         <div className="input-group">
@@ -26,6 +32,7 @@ export const InputField = (props) => {
                 onChange={(ev) => change(ev.target.value)}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
+                value={value}
             />
         </div>
     );
