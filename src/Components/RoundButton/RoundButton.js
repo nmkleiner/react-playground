@@ -1,6 +1,16 @@
 import React from "react";
-import "./style.scss";
+import classes from "./style.module.scss";
 
-export const RoundButton = (props) => <button className="round-button primary-color" onClick={props.click()}>{props.children}</button>
+export const RoundButton = ({click, children}) => {
+    const buttonClasses = [classes.RoundButton, "primary-color"].join(" ");
 
+    return (
+        <button
+            className={buttonClasses}
+            onClick={click()}
+        >
+            {children}
+        </button>
+    );
+};
 
