@@ -1,18 +1,22 @@
 import React from "react";
-import "./style.scss";
+import classes from "./style.module.scss";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 
 export const NavigationButtons = (props) => {
     const {currentStage, setCurrentStage} = props;
 
     const backButton = currentStage > 0 && (
         <button
-            className="navigation-button pointer"
+            className={classes.navigationButton}
             onClick={() => setCurrentStage(currentStage - 1)}
-        >{"<<back"}</button>
+        >
+            <FontAwesomeIcon icon={faArrowLeft}/> back
+        </button>
     );
 
     return (
-        <div className="navigation-buttons">
+        <div className={classes.NavigationButtons}>
             {backButton}
         </div>
     );

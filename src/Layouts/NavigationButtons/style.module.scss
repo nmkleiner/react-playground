@@ -1,10 +1,11 @@
 
-.navigation-buttons {
+.NavigationButtons {
   display: flex;
   justify-content: flex-start;
   width: 330px;
 
-  .navigation-button {
+  .navigationButton {
+    cursor: pointer;
     border: none;
     background-color: transparent;
     color: #ff0083;
@@ -14,9 +15,8 @@
     font-size: 16px;
     transition: 0.3s ease-in-out;
 
-
-    &:hover {
-      color: #b40060;
+    div {
+      color: inherit;
     }
   }
 }
