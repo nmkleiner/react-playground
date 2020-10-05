@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./style.module.scss";
 import InputField from "../../../Components/Inputs/InputField/InputField";
+import * as PropTypes from "prop-types";
 
 const InputGroup = (props) => {
     const {name, type, value, change, children} = props;
@@ -15,6 +16,12 @@ const InputGroup = (props) => {
             />
         </div>
     );
+};
+
+InputGroup.propTypes = {
+    name: PropTypes.string,
+    type: PropTypes.string,
+    change: PropTypes.func,
 };
 
 export default InputGroup;

@@ -4,14 +4,11 @@ import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 import classes from "./style.module.scss";
 import moment from "moment";
+import * as PropTypes from "prop-types";
 
 const dateFormat = "DD/MM/YY";
 
-export default class GetStartDate extends Component {
-
-    constructor(props) {
-        super(props);
-    }
+class GetStartDate extends Component {
 
     state = {
         focused: false,
@@ -26,7 +23,6 @@ export default class GetStartDate extends Component {
     };
 
     render() {
-
         return (
             <div className={classes.GetStartDate}>
                 <span>When can you start working?</span>
@@ -44,3 +40,10 @@ export default class GetStartDate extends Component {
         );
     }
 }
+
+GetStartDate.propTypes = {
+    startDate: PropTypes.string,
+    setStartDate: PropTypes.func,
+};
+
+export default GetStartDate;

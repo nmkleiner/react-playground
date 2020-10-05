@@ -50,7 +50,8 @@ const GetSalaryExpectation = (props) => {
 
             <ActionButton
                 disabled={!validSalary}
-                click={actionButtonClick}>
+                click={actionButtonClick}
+            >
                 {actionButtonText}
             </ActionButton>
         </div>
