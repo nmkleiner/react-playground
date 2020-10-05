@@ -1,15 +1,15 @@
 import React from "react";
-import "./style.scss";
+import classes from "./style.module.scss";
 
-export const InputLabel = (props) => {
+export const InputLabel = ({isFloating, name}) => {
     let labelClasses = [
-        "input-label",
-        props.isFloating ? "floating" : "",
+        classes.InputLabel,
+        isFloating ? classes.floating : "",
     ].join(" ");
 
     return (
         <div className={labelClasses}>
-            {props.name}
+            {name}
         </div>
     );
 };
