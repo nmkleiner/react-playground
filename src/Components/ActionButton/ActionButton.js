@@ -1,12 +1,17 @@
 import React from "react";
-import "./style.scss";
+import classes from "./style.module.scss";
 
-export const ActionButton = (props) =>
-    <button
-        className="action-button primary-background-color"
-        disabled={props.disabled}
-        onClick={props.click}>
-        {props.children}
-    </button>;
+export const ActionButton = (props) => {
+    const {disabled, click, children} = props;
+    const classNames = [classes.ActionButton, "primary-background-color"].join(" ");
 
+    return (
+        <button
+            className={classNames}
+            disabled={disabled}
+            onClick={click}>
+            {children}
+        </button>
+    );
+};
 
