@@ -28,7 +28,7 @@ export default class GetStartDate extends Component {
     render() {
 
         return (
-            <div className={classes.startDate}>
+            <div className={classes.GetStartDate}>
                 <span>When can you start working?</span>
                 <SingleDatePicker
                     placeholder={dateFormat}
