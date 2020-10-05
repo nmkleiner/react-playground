@@ -16,4 +16,14 @@
     width: fit-content;
     align-items: center;
   }
+
+  .welcome {
+    position: relative;
+    display: flex;
+    padding-right: 30px;
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-right: 1px;
+    cursor: default;
+  }
 }
