@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./style.scss";
+import classes from "./style.module.scss";
 import {RadioButton} from "./RadioButton/RadioButton";
 
 
@@ -26,7 +26,7 @@ export const RadioGroup = (props) => {
     }
 
     return (
-        <div className="radio-group">
+        <div className={classes.RadioGroup}>
             {radioButtons.map((radioButton, index) =>
                 <RadioButton
                     key={radioButton.id}
