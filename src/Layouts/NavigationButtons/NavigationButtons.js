@@ -3,7 +3,7 @@ import classes from "./style.module.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft} from "@fortawesome/free-solid-svg-icons";
 
-export const NavigationButtons = (props) => {
+const NavigationButtons = (props) => {
     const {currentStage, setCurrentStage} = props;
 
     const backButton = currentStage > 0 && (
@@ -21,3 +21,5 @@ export const NavigationButtons = (props) => {
         </div>
     );
 };
+
+export default NavigationButtons;

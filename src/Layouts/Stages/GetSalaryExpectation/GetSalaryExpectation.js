@@ -2,10 +2,11 @@ import React from "react";
 import "./style.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMinus, faPlus} from "@fortawesome/free-solid-svg-icons";
-import {RoundButton} from "../../../Components/RoundButton/RoundButton";
-import {ActionButton} from "../../../Components/ActionButton/ActionButton";
+import RoundButton from "../../../Components/RoundButton/RoundButton";
+import ActionButton from "../../../Components/ActionButton/ActionButton";
 
-export const GetSalaryExpectation = (props) => {
+
+const GetSalaryExpectation = (props) => {
     const {setSalarySelected, salaryAmount, setSalary} = props;
 
     const changeAmount = (n) => {
@@ -55,3 +56,5 @@ export const GetSalaryExpectation = (props) => {
         </div>
     );
 };
+
+export default GetSalaryExpectation;

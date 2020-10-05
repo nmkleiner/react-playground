@@ -1,14 +1,13 @@
 import React from "react";
 import classes from "./style.module.scss";
-import {GetSalaryExpectation} from "../../Layouts/Stages/GetSalaryExpectation/GetSalaryExpectation";
-import {GetName} from "../../Layouts/Stages/GetName/GetName";
-import {GetPreferredFramework} from "../../Layouts/Stages/GetPreferredFramework/GetPreferredFramework";
-import {NavigationButtons} from "../../Layouts/NavigationButtons/NavigationButtons";
+import GetSalaryExpectation from "../../Layouts/Stages/GetSalaryExpectation/GetSalaryExpectation";
+import GetName from "../../Layouts/Stages/GetName/GetName";
+import GetPreferredFramework from "../../Layouts/Stages/GetPreferredFramework/GetPreferredFramework";
+import NavigationButtons from "../../Layouts/NavigationButtons/NavigationButtons";
+import GetExperience from "../../Layouts/Stages/GetExperience/GetExperience";
 import GetStartDate from "../../Layouts/Stages/GetStartDate/GetStartDate";
-import {GetExperience} from "../../Layouts/Stages/GetExperience/GetExperience";
 
-
-export const PlaygroundPage = (props) => {
+const PlaygroundPage = (props) => {
     const {
         currentStage,
         setCurrentStage,
@@ -78,3 +77,5 @@ export const PlaygroundPage = (props) => {
         </div>
     );
 };
+
+export default PlaygroundPage;

@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./style.module.scss";
 
-export const InputLabel = ({isFloating, name}) => {
+const InputLabel = ({isFloating, name}) => {
     let labelClasses = [
         classes.InputLabel,
         isFloating ? classes.floating : "",
@@ -13,3 +13,5 @@ export const InputLabel = ({isFloating, name}) => {
         </div>
     );
 };
+
+export default InputLabel;

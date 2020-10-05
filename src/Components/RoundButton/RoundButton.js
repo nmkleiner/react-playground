@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./style.module.scss";
 
-export const RoundButton = ({click, children}) => {
+const RoundButton = ({click, children}) => {
     const buttonClasses = [classes.RoundButton, "primary-color"].join(" ");
 
     return (
@@ -14,3 +14,4 @@ export const RoundButton = ({click, children}) => {
     );
 };
 
+export default RoundButton;

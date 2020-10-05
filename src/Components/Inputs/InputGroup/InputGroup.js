@@ -1,8 +1,8 @@
 import React from "react";
 import classes from "./style.module.scss";
-import {InputField} from "../../../Components/Inputs/InputField/InputField";
+import InputField from "../../../Components/Inputs/InputField/InputField";
 
-export const InputGroup = (props) => {
+const InputGroup = (props) => {
     const {name, type, value, change, children} = props;
     return (
         <div className={classes.InputGroup}>
@@ -16,3 +16,5 @@ export const InputGroup = (props) => {
         </div>
     );
 };
+
+export default InputGroup;

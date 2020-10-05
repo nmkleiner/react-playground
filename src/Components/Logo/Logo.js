@@ -3,4 +3,6 @@ import logo from "../../logo.svg";
 import "./style.scss";
 
 
-export const Logo = () => <img src={logo} className="AppLogo" alt="logo"/>;
+const Logo = () => <img src={logo} className="AppLogo" alt="logo"/>;
+
+export default Logo;

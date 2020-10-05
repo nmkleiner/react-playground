@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./style.module.scss";
-import {Logo} from "../../Components/Logo/Logo";
-import {Heading} from "../../Components/Heading/Heading";
+import Logo from "../../Components/Logo/Logo";
+import Heading from "../../Components/Heading/Heading";
 
 
 const Header = ({name}) => {

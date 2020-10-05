@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import classes from "./style.module.scss";
-import {InputLabel} from "./InputLabel/InputLabel";
+import InputLabel from "./InputLabel/InputLabel";
 
-export const InputField = (props) => {
+const InputField = (props) => {
     const {name, type, value, change} = props;
     const [labelFloatingState, setLabelFloating] = useState(false);
     const inputClasses = [classes.input, "primary-color"].join(" ");
@@ -40,3 +40,5 @@ export const InputField = (props) => {
         </div>
     );
 };
+
+export default InputField;

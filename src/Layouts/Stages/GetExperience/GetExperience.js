@@ -1,8 +1,8 @@
 import React from "react";
-import {InputGroup} from "../../../Components/Inputs/InputGroup/InputGroup";
+import InputGroup from "../../../Components/Inputs/InputGroup/InputGroup";
 import {InputTypes} from "../../../Enums/InputTypes";
 
-export const GetExperience = (props) => {
+const GetExperience = (props) => {
     const {value, change} = props;
     const name = "experience";
     const type = InputTypes.NUMBER;
@@ -18,3 +18,5 @@ export const GetExperience = (props) => {
         </InputGroup>
     );
 };
+
+export default GetExperience;

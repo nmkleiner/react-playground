@@ -1,9 +1,9 @@
 import React from "react";
 import classes from "./style.module.scss";
-import {RadioGroup} from "../../../Components/Inputs/RadioGroup/RadioGroup";
 import {faAngular, faReact, faVuejs} from "@fortawesome/free-brands-svg-icons";
+import RadioGroup from "../../../Components/Inputs/RadioGroup/RadioGroup";
 
-export const GetPreferredFramework = (props) => {
+const GetPreferredFramework = (props) => {
     const {framework, setFramework, setFrameworkSelected} = props;
 
     const message = "Which is your preferred frontend framework/library?";
@@ -29,3 +29,5 @@ export const GetPreferredFramework = (props) => {
         </div>
     );
 };
+
+export default GetPreferredFramework;

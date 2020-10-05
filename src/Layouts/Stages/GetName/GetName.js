@@ -1,8 +1,8 @@
 import React from "react";
-import {InputGroup} from "../../../Components/Inputs/InputGroup/InputGroup";
 import {InputTypes} from "../../../Enums/InputTypes";
+import InputGroup from "../../../Components/Inputs/InputGroup/InputGroup";
 
-export const GetName = (props) => {
+const GetName = (props) => {
     const {value, change} = props;
     const name = "name";
     const type = InputTypes.TEXT;
@@ -20,3 +20,4 @@ export const GetName = (props) => {
     );
 };
 
+export default GetName;

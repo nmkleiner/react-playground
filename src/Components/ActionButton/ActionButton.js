@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./style.module.scss";
 
-export const ActionButton = (props) => {
+const ActionButton = (props) => {
     const {disabled, click, children} = props;
     const classNames = [classes.ActionButton, "primary-background-color"].join(" ");
 
@@ -15,3 +15,4 @@ export const ActionButton = (props) => {
     );
 };
 
+export default ActionButton;

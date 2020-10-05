@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./App.scss";
-import {PlaygroundPage} from "./Pages/PlaygroundPage/PlaygroundPage";
+import PlaygroundPage from "./Pages/PlaygroundPage/PlaygroundPage";
 import {debounce} from "lodash";
 import Header from "./Layouts/Header/Header";
 

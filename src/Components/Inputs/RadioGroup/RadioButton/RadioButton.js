@@ -3,7 +3,7 @@ import classes from "./style.module.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {InputTypes} from "../../../../Enums/InputTypes";
 
-export const RadioButton = (props) => {
+const RadioButton = (props) => {
     const {label, checked, id, check, icon} = props;
 
     const wrapperClasses = [
@@ -36,3 +36,5 @@ export const RadioButton = (props) => {
         </div>
     );
 };
+
+export default RadioButton;

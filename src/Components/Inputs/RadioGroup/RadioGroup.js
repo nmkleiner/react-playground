@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import classes from "./style.module.scss";
-import {RadioButton} from "./RadioButton/RadioButton";
+import RadioButton from "./RadioButton/RadioButton";
 
 
-export const RadioGroup = (props) => {
+const RadioGroup = (props) => {
     const {radioButtons, selectedValue, select} = props;
 
     const [checkedRadioStates, setCheckedRadioStates] = useState(radioButtons.map(() => false));
@@ -43,3 +43,5 @@ export const RadioGroup = (props) => {
         </div>
     );
 };
+
+export default RadioGroup;
