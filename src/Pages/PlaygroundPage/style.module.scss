@@ -1,13 +1,13 @@
-.playgroundPage {
+.PlaygroundPage {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
 
-  .stages-container {
+  .stagesContainer {
     width: 500px;
 
-    .stage-container {
+    .stageContainer {
       height: 220px;
     }
   }

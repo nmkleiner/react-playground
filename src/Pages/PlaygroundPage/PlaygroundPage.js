@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.scss";
+import classes from "./style.module.scss";
 import {GetSalaryExpectation} from "../../Layouts/Stages/GetSalaryExpectation/GetSalaryExpectation";
 import {GetName} from "../../Layouts/Stages/GetName/GetName";
 import {GetPreferredFramework} from "../../Layouts/Stages/GetPreferredFramework/GetPreferredFramework";
@@ -64,9 +64,9 @@ export const PlaygroundPage = (props) => {
     const currentStageComponent = stages[currentStage];
 
     return (
-        <div className="playgroundPage">
-            <div className="stages-container">
-                <div className="column stage-container">
+        <div className={classes.PlaygroundPage}>
+            <div className={classes.stagesContainer}>
+                <div className={classes.stageContainer + " column"}>
                     {currentStageComponent}
                 </div>
 
