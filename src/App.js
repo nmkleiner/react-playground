@@ -7,28 +7,12 @@ import UserAnswersContext from "./Context/UserAnswersContext";
 
 
 const App = () => {
-    /* already in context */
-    // currentStage
-    // setCurrentStage
-    // name
-    // setName
-
-    /* need to add */
-    // expectedSalaryState
-    // setExpectedSalaryState
-    // frameworkState
-    // setFrameworkState
-    // startDateState
-    // setStartDateState
-
     const [currentStageState, setCurrentStage] = useState(0);
 
     const [nameState, setNameState] = useState("");
-
-    const [expectedSalaryState, setExpectedSalaryState] = useState(0);
-
+    const [experienceState, setExperienceState] = useState(null);
     const [frameworkState, setFrameworkState] = useState("");
-
+    const [expectedSalaryState, setExpectedSalaryState] = useState(0);
     const [startDateState, setStartDateState] = useState("");
 
     const incrementCurrentStage = () => setCurrentStage(currentStageState + 1);
@@ -38,19 +22,32 @@ const App = () => {
         incrementCurrentStage();
     }, 800);
 
+    const setExperience = (experience) => {
+        setExperienceState(experience);
+        setTimeout(() => {
+            incrementCurrentStage();
+        }, 800);
+    };
+
     const setFramework = (selectedFramework) => {
         setFrameworkState(selectedFramework);
-        incrementCurrentStage();
+        setTimeout(() => {
+            incrementCurrentStage();
+        }, 800);
     };
 
     const setExpectedSalary = (expectedSalary) => {
         setExpectedSalaryState(expectedSalary);
-        incrementCurrentStage();
+        setTimeout(() => {
+            incrementCurrentStage();
+        }, 100);
     };
 
     const setStartDate = (date) => {
         setStartDateState(date);
-        incrementCurrentStage();
+        setTimeout(() => {
+            incrementCurrentStage();
+        }, 800);
     };
 
     const userAnswersContext = {
@@ -58,10 +55,12 @@ const App = () => {
         setCurrentStage: setCurrentStage,
         name: nameState,
         setName: setName,
-        expectedSalary: expectedSalaryState,
-        setExpectedSalary: setExpectedSalary,
+        experience: experienceState,
+        setExperience : setExperience,
         framework: frameworkState,
         setFramework: setFramework,
+        expectedSalary: expectedSalaryState,
+        setExpectedSalary: setExpectedSalary,
         startDate: startDateState,
         setStartDate: setStartDate,
     };
@@ -69,17 +68,16 @@ const App = () => {
 
     return (
         <div className="app">
-            <UserAnswersContext.Provider value={userAnswersContext}
-            >
+            <UserAnswersContext.Provider value={userAnswersContext}>
                 <Header/>
                 <PlaygroundPage/>
             </UserAnswersContext.Provider>
             <pre>
                 name: {nameState}<br/>
-                salaryAmount: {expectedSalaryState}<br/>
+                experience: {experienceState}
                 framework: {frameworkState}<br/>
+                salaryAmount: {expectedSalaryState}<br/>
                 startDate: {startDateState}<br/>
-                experience:
             </pre>
         </div>
     );

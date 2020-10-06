@@ -8,27 +8,22 @@ import GetExperience from "../../Layouts/Stages/GetExperience/GetExperience";
 import GetStartDate from "../../Layouts/Stages/GetStartDate/GetStartDate";
 import UserAnswersContext from "../../Context/UserAnswersContext";
 
-const PlaygroundPage = (props) => {
+const PlaygroundPage = () => {
     const userAnswersContext = useContext(UserAnswersContext);
     const {currentStage} = userAnswersContext;
 
     const getNameComponent = (<GetName/>);
-
-    const salaryExpectationComponent = (<GetSalaryExpectation/>);
-
-    const preferredFrameworkComponent = (<GetPreferredFramework/>);
-
-    const startDateComponent = (<GetStartDate/>);
-
     const getExperienceComponent = (<GetExperience/>);
-
+    const getPreferredFrameworkComponent = (<GetPreferredFramework/>);
+    const getSalaryExpectationComponent = (<GetSalaryExpectation/>);
+    const getStartDateComponent = (<GetStartDate/>);
 
     const stages = [
         getNameComponent,
-        salaryExpectationComponent,
-        preferredFrameworkComponent,
-        startDateComponent,
         getExperienceComponent,
+        getPreferredFrameworkComponent,
+        getSalaryExpectationComponent,
+        getStartDateComponent,
     ];
 
     const currentStageComponent = stages[currentStage];

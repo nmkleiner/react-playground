@@ -1,9 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
 import InputGroup from "../../../Components/Inputs/InputGroup/InputGroup";
 import {InputTypes} from "../../../Enums/InputTypes";
+import UserAnswersContext from "../../../Context/UserAnswersContext";
 
-const GetExperience = (props) => {
-    const {value, change} = props;
+const GetExperience = () => {
+    const userAnswersContext = useContext(UserAnswersContext);
+    const {experience, setExperience} = userAnswersContext;
+
     const name = "experience";
     const type = InputTypes.NUMBER;
 
@@ -11,8 +14,8 @@ const GetExperience = (props) => {
         <InputGroup
             name={name}
             type={type}
-            value={value}
-            change={change}
+            value={experience}
+            change={setExperience}
         >
             How many years of experience do you have?
         </InputGroup>
