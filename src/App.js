@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import "./App.scss";
 import PlaygroundPage from "./Pages/PlaygroundPage/PlaygroundPage";
-import {debounce} from "lodash";
 import Header from "./Layouts/Header/Header";
 import UserAnswersContext from "./Context/UserAnswersContext";
 
@@ -74,13 +73,6 @@ const App = () => {
                 <Header/>
                 <PlaygroundPage/>
             </UserAnswersContext.Provider>
-            <pre>
-                name: {nameState}<br/>
-                experience: {experienceState}<br/>
-                framework: {frameworkState}<br/>
-                salaryAmount: {expectedSalaryState}<br/>
-                startDate: {startDateState}<br/>
-            </pre>
         </div>
     );
 };
