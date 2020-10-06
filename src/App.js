@@ -3,18 +3,34 @@ import "./App.scss";
 import PlaygroundPage from "./Pages/PlaygroundPage/PlaygroundPage";
 import {debounce} from "lodash";
 import Header from "./Layouts/Header/Header";
+import UserAnswersContext from "./Context/UserAnswersContext";
 
 
 const App = () => {
+    /* already in context */
+    // currentStage
+    // setCurrentStage
+    // name
+    // setName
+
+    /* need to add */
+    // expectedSalaryState
+    // setExpectedSalaryState
+    // frameworkState
+    // setFrameworkState
+    // startDateState
+    // setStartDateState
 
     const [currentStageState, setCurrentStage] = useState(0);
 
     const [nameState, setNameState] = useState("");
 
-    const [salaryAmountState, setSalaryAmountState] = useState(18);
+    const [expectedSalaryState, setExpectedSalaryState] = useState(18);
+    // TODO: stop using this ?
     const [salarySelectedState, setSalarySelectedState] = useState(false);
 
     const [frameworkState, setFrameworkState] = useState("");
+    // TODO: stop using this
     const [frameworkSelectedState, setFrameworkSelectedState] = useState(false);
 
     const [startDateState, setStartDateState] = useState("");
@@ -43,32 +59,32 @@ const App = () => {
 
     return (
         <div className="app">
-            <Header name={nameState}/>
-            <PlaygroundPage
-                currentStage={currentStageState}
-                setCurrentStage={setCurrentStage}
+            <UserAnswersContext.Provider value={{
+                currentStage: currentStageState,
+                setCurrentStage: setCurrentStage,
+                name: nameState,
+                setName: setName,
+                expectedSalary: expectedSalaryState,
+                setExpectedSalary: setExpectedSalaryState,
+                framework: frameworkState,
+                setFramework: setFrameworkState,
+                startDate: startDateState,
+                setStartDate: setStartDate,
+            }}
+            >
+                <Header/>
+                <PlaygroundPage
+                    salarySelected={salarySelectedState}
+                    setSalarySelected={setSalarySelected}
 
-                name={nameState}
-                setName={setName}
-
-                salarySelected={salarySelectedState}
-                setSalarySelected={setSalarySelected}
-                salaryAmount={salaryAmountState}
-                setSalary={setSalaryAmountState}
-
-                framework={frameworkState}
-                setFramework={setFrameworkState}
-                frameworkSelected={frameworkSelectedState}
-                setFrameworkSelected={setFrameworkSelected}
-
-                startDate={startDateState}
-                setStartDate={setStartDate}
-            />
-
+                    frameworkSelected={frameworkSelectedState}
+                    setFrameworkSelected={setFrameworkSelected}
+                />
+            </UserAnswersContext.Provider>
             <pre>
                 name: {nameState}<br/>
                 salarySelected: {salarySelectedState.toString()}<br/>
-                salaryAmount: {salaryAmountState}<br/>
+                salaryAmount: {expectedSalaryState}<br/>
                 framework: {frameworkState}<br/>
                 frameworkSelected: {frameworkSelectedState.toString()}<br/>
                 startDate: {startDateState}<br/>

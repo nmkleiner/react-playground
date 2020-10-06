@@ -5,6 +5,7 @@ import * as PropTypes from "prop-types";
 
 const InputGroup = (props) => {
     const {name, type, value, change, children} = props;
+
     return (
         <div className={classes.InputGroup}>
             <p className={classes.message}>{children}</p>

@@ -1,25 +1,28 @@
-import React, {Component} from "react";
+import React, {Component, useContext} from "react";
 import {SingleDatePicker} from "react-dates";
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
 import classes from "./style.module.scss";
 import moment from "moment";
 import * as PropTypes from "prop-types";
+import UserAnswersContext from "../../../Context/UserAnswersContext";
 
 const dateFormat = "DD/MM/YY";
 
 class GetStartDate extends Component {
 
+    static contextType = UserAnswersContext;
+
     state = {
         focused: false,
-        date: this.props.startDate ? moment(this.props.startDate, dateFormat) : null,
+        date: this.context.startDate ? moment(this.context.startDate, dateFormat) : null,
     };
 
     handleDateChange = (date) => {
         this.setState({date});
         const dateString = date.format(dateFormat);
 
-        this.props.setStartDate(dateString);
+        this.context.setStartDate(dateString);
     };
 
     render() {

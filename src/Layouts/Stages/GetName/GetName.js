@@ -1,9 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import {InputTypes} from "../../../Enums/InputTypes";
 import InputGroup from "../../../Components/Inputs/InputGroup/InputGroup";
+import UserAnswersContext from "../../../Context/UserAnswersContext";
 
-const GetName = (props) => {
-    const {value, change} = props;
+const GetName = () => {
+    const userAnswersContext = useContext(UserAnswersContext);
+    const change = userAnswersContext.setName;
+    const value = userAnswersContext.name;
+
     const name = "name";
     const type = InputTypes.TEXT;
 
