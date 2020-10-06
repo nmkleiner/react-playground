@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./style.module.scss";
 
-const InputLabel = ({isFloating, name}) => {
+const InputLabel = ({isFloating, label}) => {
     let labelClasses = [
         classes.InputLabel,
         isFloating ? classes.floating : "",
@@ -9,7 +9,7 @@ const InputLabel = ({isFloating, name}) => {
 
     return (
         <div className={labelClasses}>
-            {name}
+            {label}
         </div>
     );
 };

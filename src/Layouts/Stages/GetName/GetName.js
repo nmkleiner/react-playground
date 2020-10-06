@@ -5,18 +5,17 @@ import UserAnswersContext from "../../../Context/UserAnswersContext";
 
 const GetName = () => {
     const userAnswersContext = useContext(UserAnswersContext);
-    const change = userAnswersContext.setName;
-    const value = userAnswersContext.name;
+    const {name, setName} = userAnswersContext;
 
-    const name = "name";
+    const inputName = "name";
     const type = InputTypes.TEXT;
 
     return (
         <InputGroup
-            name={name}
+            label={inputName}
             type={type}
-            value={value}
-            change={change}
+            value={name}
+            change={setName}
         >
             Welcome! What is your name?
         </InputGroup>

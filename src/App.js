@@ -10,17 +10,19 @@ const App = () => {
     const [currentStageState, setCurrentStage] = useState(0);
 
     const [nameState, setNameState] = useState("");
-    const [experienceState, setExperienceState] = useState(null);
+    const [experienceState, setExperienceState] = useState("");
     const [frameworkState, setFrameworkState] = useState("");
     const [expectedSalaryState, setExpectedSalaryState] = useState(0);
     const [startDateState, setStartDateState] = useState("");
 
     const incrementCurrentStage = () => setCurrentStage(currentStageState + 1);
 
-    const setName = debounce((name) => {
+    const setName = (name) => {
         setNameState(name);
-        incrementCurrentStage();
-    }, 800);
+        setTimeout(() => {
+            incrementCurrentStage();
+        }, 800);
+    };
 
     const setExperience = (experience) => {
         setExperienceState(experience);
@@ -74,7 +76,7 @@ const App = () => {
             </UserAnswersContext.Provider>
             <pre>
                 name: {nameState}<br/>
-                experience: {experienceState}
+                experience: {experienceState}<br/>
                 framework: {frameworkState}<br/>
                 salaryAmount: {expectedSalaryState}<br/>
                 startDate: {startDateState}<br/>

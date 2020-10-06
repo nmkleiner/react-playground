@@ -3,7 +3,7 @@ import classes from "./style.module.scss";
 import InputLabel from "./InputLabel/InputLabel";
 
 const InputField = (props) => {
-    const {name, type, value, change} = props;
+    const {label, type, value, change} = props;
     const [labelFloatingState, setLabelFloating] = useState(false);
     const inputClasses = [classes.input, "primary-color"].join(" ");
 
@@ -19,6 +19,7 @@ const InputField = (props) => {
 
     useEffect(() => {
         if (value !== "") {
+            console.log(value);
             setLabelFloating(true);
         }
     }, []);
@@ -26,7 +27,7 @@ const InputField = (props) => {
     return (
         <div className={classes.InputField}>
             <InputLabel
-                name={name}
+                label={label}
                 isFloating={labelFloatingState}
             />
             <input

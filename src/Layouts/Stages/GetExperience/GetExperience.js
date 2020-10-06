@@ -7,12 +7,12 @@ const GetExperience = () => {
     const userAnswersContext = useContext(UserAnswersContext);
     const {experience, setExperience} = userAnswersContext;
 
-    const name = "experience";
+    const label = "experience";
     const type = InputTypes.NUMBER;
 
     return (
         <InputGroup
-            name={name}
+            label={label}
             type={type}
             value={experience}
             change={setExperience}

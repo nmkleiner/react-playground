@@ -4,13 +4,13 @@ import InputField from "../../../Components/Inputs/InputField/InputField";
 import * as PropTypes from "prop-types";
 
 const InputGroup = (props) => {
-    const {name, type, value, change, children} = props;
+    const {label, type, value, change, children} = props;
 
     return (
         <div className={classes.InputGroup}>
             <p className={classes.message}>{children}</p>
             <InputField
-                name={name}
+                label={label}
                 type={type}
                 value={value}
                 change={change}
