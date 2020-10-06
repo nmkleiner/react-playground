@@ -12,19 +12,11 @@ const PlaygroundPage = (props) => {
     const userAnswersContext = useContext(UserAnswersContext);
     const {currentStage} = userAnswersContext;
 
-    const {
-        frameworkSelected,
-        setFrameworkSelected,
-    } = props;
-
     const getNameComponent = (<GetName/>);
 
     const salaryExpectationComponent = (<GetSalaryExpectation/>);
 
-    const preferredFrameworkComponent = (<GetPreferredFramework
-        frameworkSelected={frameworkSelected}
-        setFrameworkSelected={setFrameworkSelected}
-    />);
+    const preferredFrameworkComponent = (<GetPreferredFramework/>);
 
     const startDateComponent = (<GetStartDate/>);
 

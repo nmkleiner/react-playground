@@ -28,8 +28,6 @@ const App = () => {
     const [expectedSalaryState, setExpectedSalaryState] = useState(0);
 
     const [frameworkState, setFrameworkState] = useState("");
-    // TODO: stop using this
-    const [frameworkSelectedState, setFrameworkSelectedState] = useState(false);
 
     const [startDateState, setStartDateState] = useState("");
 
@@ -40,8 +38,8 @@ const App = () => {
         incrementCurrentStage();
     }, 800);
 
-    const setFrameworkSelected = (isFrameworkSelected) => {
-        setFrameworkSelectedState(isFrameworkSelected);
+    const setFramework = (selectedFramework) => {
+        setFrameworkState(selectedFramework);
         incrementCurrentStage();
     };
 
@@ -55,33 +53,31 @@ const App = () => {
         incrementCurrentStage();
     };
 
+    const userAnswersContext = {
+        currentStage: currentStageState,
+        setCurrentStage: setCurrentStage,
+        name: nameState,
+        setName: setName,
+        expectedSalary: expectedSalaryState,
+        setExpectedSalary: setExpectedSalary,
+        framework: frameworkState,
+        setFramework: setFramework,
+        startDate: startDateState,
+        setStartDate: setStartDate,
+    };
+
+
     return (
         <div className="app">
-            <UserAnswersContext.Provider value={{
-                currentStage: currentStageState,
-                setCurrentStage: setCurrentStage,
-                name: nameState,
-                setName: setName,
-                expectedSalary: expectedSalaryState,
-                setExpectedSalary: setExpectedSalary,
-                framework: frameworkState,
-                setFramework: setFrameworkState,
-                startDate: startDateState,
-                setStartDate: setStartDate,
-            }}
+            <UserAnswersContext.Provider value={userAnswersContext}
             >
                 <Header/>
-                <PlaygroundPage
-
-                    frameworkSelected={frameworkSelectedState}
-                    setFrameworkSelected={setFrameworkSelected}
-                />
+                <PlaygroundPage/>
             </UserAnswersContext.Provider>
             <pre>
                 name: {nameState}<br/>
                 salaryAmount: {expectedSalaryState}<br/>
                 framework: {frameworkState}<br/>
-                frameworkSelected: {frameworkSelectedState.toString()}<br/>
                 startDate: {startDateState}<br/>
                 experience:
             </pre>

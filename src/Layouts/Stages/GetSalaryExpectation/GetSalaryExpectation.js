@@ -8,7 +8,6 @@ import UserAnswersContext from "../../../Context/UserAnswersContext";
 
 
 const GetSalaryExpectation = () => {
-
     const userAnswersContext = useContext(UserAnswersContext);
     const {setExpectedSalary} = userAnswersContext;
 

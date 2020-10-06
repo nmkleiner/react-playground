@@ -4,8 +4,7 @@ import {faAngular, faReact, faVuejs} from "@fortawesome/free-brands-svg-icons";
 import RadioGroup from "../../../Components/Inputs/RadioGroup/RadioGroup";
 import UserAnswersContext from "../../../Context/UserAnswersContext";
 
-const GetPreferredFramework = (props) => {
-    const {setFrameworkSelected} = props;
+const GetPreferredFramework = () => {
 
     const userAnswersContext = useContext(UserAnswersContext);
     const {framework, setFramework} = userAnswersContext;
@@ -19,7 +18,6 @@ const GetPreferredFramework = (props) => {
 
     const select = (framework) => {
         setFramework(framework);
-        setFrameworkSelected(true);
     };
 
     return (
