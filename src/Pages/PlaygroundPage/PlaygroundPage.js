@@ -13,14 +13,13 @@ const PlaygroundPage = (props) => {
     const {currentStage} = userAnswersContext;
 
     const {
-        setSalarySelected,
         frameworkSelected,
         setFrameworkSelected,
     } = props;
 
     const getNameComponent = (<GetName/>);
 
-    const salaryExpectationComponent = (<GetSalaryExpectation setSalarySelected={setSalarySelected}/>);
+    const salaryExpectationComponent = (<GetSalaryExpectation/>);
 
     const preferredFrameworkComponent = (<GetPreferredFramework
         frameworkSelected={frameworkSelected}

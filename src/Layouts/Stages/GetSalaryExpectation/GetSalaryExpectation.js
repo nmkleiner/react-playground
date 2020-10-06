@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import "./style.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMinus, faPlus} from "@fortawesome/free-solid-svg-icons";
@@ -7,31 +7,32 @@ import ActionButton from "../../../Components/ActionButton/ActionButton";
 import UserAnswersContext from "../../../Context/UserAnswersContext";
 
 
-const GetSalaryExpectation = (props) => {
-    const {setSalarySelected} = props;
+const GetSalaryExpectation = () => {
 
     const userAnswersContext = useContext(UserAnswersContext);
-    const {expectedSalary, setExpectedSalary} = userAnswersContext;
+    const {setExpectedSalary} = userAnswersContext;
 
-    const changeAmount = (n) => {
-        const updatedAmount = expectedSalary + n;
+    const [presentedSalaryState, setPresentedSalary] = useState(18);
 
-        if (updatedAmount >= 0) {
-            setExpectedSalary(updatedAmount);
+    const updatePresentedSalary = (n) => {
+        const updatedSalary = presentedSalaryState + n;
+
+        if (updatedSalary >= 0) {
+            setPresentedSalary(updatedSalary);
         }
     };
 
     const minSalary = 16;
     const maxSalary = 20;
-    const validSalary = expectedSalary >= minSalary && expectedSalary < maxSalary;
-    const actionButtonClick = () => setSalarySelected(true);
+    const validSalary = presentedSalaryState >= minSalary && presentedSalaryState < maxSalary;
+    const actionButtonClick = () => setExpectedSalary(presentedSalaryState);
 
 
     let actionButtonText = "ok";
     if (!validSalary) {
-        if (expectedSalary < minSalary) {
+        if (presentedSalaryState < minSalary) {
             actionButtonText = "hmm.. too little";
-        } else if (expectedSalary >= maxSalary) {
+        } else if (presentedSalaryState >= maxSalary) {
             actionButtonText = "hmm.. too much";
         }
     }
@@ -40,13 +41,13 @@ const GetSalaryExpectation = (props) => {
         <div className="salary-expectation">
             <div className="row">
                 <div>What are your salary expectations?
-                    <span className="primary-color"> {expectedSalary}K</span>
+                    <span className="primary-color"> {presentedSalaryState}K</span>
                 </div>
                 <div className="buttons-wrapper ">
-                    <RoundButton click={() => changeAmount.bind(this, -1)}>
+                    <RoundButton click={() => updatePresentedSalary.bind(this, -1)}>
                         <FontAwesomeIcon icon={faMinus}/>
                     </RoundButton>
-                    <RoundButton click={() => changeAmount.bind(this, 1)}>
+                    <RoundButton click={() => updatePresentedSalary.bind(this, 1)}>
                         <FontAwesomeIcon icon={faPlus}/>
                     </RoundButton>
                 </div>

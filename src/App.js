@@ -25,9 +25,7 @@ const App = () => {
 
     const [nameState, setNameState] = useState("");
 
-    const [expectedSalaryState, setExpectedSalaryState] = useState(18);
-    // TODO: stop using this ?
-    const [salarySelectedState, setSalarySelectedState] = useState(false);
+    const [expectedSalaryState, setExpectedSalaryState] = useState(0);
 
     const [frameworkState, setFrameworkState] = useState("");
     // TODO: stop using this
@@ -47,8 +45,8 @@ const App = () => {
         incrementCurrentStage();
     };
 
-    const setSalarySelected = (isSalarySelected) => {
-        setSalarySelectedState(isSalarySelected);
+    const setExpectedSalary = (expectedSalary) => {
+        setExpectedSalaryState(expectedSalary);
         incrementCurrentStage();
     };
 
@@ -65,7 +63,7 @@ const App = () => {
                 name: nameState,
                 setName: setName,
                 expectedSalary: expectedSalaryState,
-                setExpectedSalary: setExpectedSalaryState,
+                setExpectedSalary: setExpectedSalary,
                 framework: frameworkState,
                 setFramework: setFrameworkState,
                 startDate: startDateState,
@@ -74,8 +72,6 @@ const App = () => {
             >
                 <Header/>
                 <PlaygroundPage
-                    salarySelected={salarySelectedState}
-                    setSalarySelected={setSalarySelected}
 
                     frameworkSelected={frameworkSelectedState}
                     setFrameworkSelected={setFrameworkSelected}
@@ -83,7 +79,6 @@ const App = () => {
             </UserAnswersContext.Provider>
             <pre>
                 name: {nameState}<br/>
-                salarySelected: {salarySelectedState.toString()}<br/>
                 salaryAmount: {expectedSalaryState}<br/>
                 framework: {frameworkState}<br/>
                 frameworkSelected: {frameworkSelectedState.toString()}<br/>
