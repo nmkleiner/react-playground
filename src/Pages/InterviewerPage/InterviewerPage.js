@@ -8,7 +8,7 @@ import GetExperience from "../../Layouts/Stages/GetExperience/GetExperience";
 import GetStartDate from "../../Layouts/Stages/GetStartDate/GetStartDate";
 import UserAnswersContext from "../../Context/UserAnswersContext";
 
-const PlaygroundPage = () => {
+const InterviewerPage = () => {
     const userAnswersContext = useContext(UserAnswersContext);
     const {currentStage} = userAnswersContext;
 
@@ -29,7 +29,7 @@ const PlaygroundPage = () => {
     const currentStageComponent = stages[currentStage];
 
     return (
-        <div className={classes.PlaygroundPage}>
+        <div className={classes.InterviewerPage}>
             <div className={classes.stagesContainer}>
                 <div className={classes.stageContainer + " column"}>
                     {currentStageComponent}
@@ -40,4 +40,4 @@ const PlaygroundPage = () => {
     );
 };
 
-export default PlaygroundPage;
+export default InterviewerPage;

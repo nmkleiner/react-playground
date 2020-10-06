@@ -1,8 +1,11 @@
 import React, {useState} from "react";
 import "./App.scss";
-import PlaygroundPage from "./Pages/PlaygroundPage/PlaygroundPage";
+import InterviewerPage from "./Pages/InterviewerPage/InterviewerPage";
 import Header from "./Layouts/Header/Header";
 import UserAnswersContext from "./Context/UserAnswersContext";
+import {Route} from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
+import ConfirmationPage from "./Pages/ConfirmationPage/ConfirmationPage";
 
 
 const App = () => {
@@ -57,7 +60,7 @@ const App = () => {
         name: nameState,
         setName: setName,
         experience: experienceState,
-        setExperience : setExperience,
+        setExperience: setExperience,
         framework: frameworkState,
         setFramework: setFramework,
         expectedSalary: expectedSalaryState,
@@ -68,12 +71,15 @@ const App = () => {
 
 
     return (
-        <div className="app">
-            <UserAnswersContext.Provider value={userAnswersContext}>
-                <Header/>
-                <PlaygroundPage/>
-            </UserAnswersContext.Provider>
-        </div>
+        <BrowserRouter>
+            <div className="app">
+                <UserAnswersContext.Provider value={userAnswersContext}>
+                    <Header/>
+                    <Route path="/interviewer" exact render={() => <InterviewerPage/>}/>
+                    <Route path="/confirmation" exact render={() => <ConfirmationPage/>}/>
+                </UserAnswersContext.Provider>
+            </div>
+        </BrowserRouter>
     );
 };
 
