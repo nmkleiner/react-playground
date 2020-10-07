@@ -11,7 +11,7 @@ import GetSalaryExpectation from "../Layouts/Stages/GetSalary/GetSalary";
 import GetStartDate from "../Layouts/Stages/GetStartDate/GetStartDate";
 
 const Pages = () => {
-    const [currentStageState, setCurrentStage] = useState(0);
+    const [currentStageIndexState, setCurrentStageIndex] = useState(0);
 
     const [nameState, setName] = useState("");
     const [experienceState, setExperience] = useState("");
@@ -21,7 +21,7 @@ const Pages = () => {
 
     const incrementCurrentStage = () => {
         setTimeout(() => {
-            setCurrentStage(currentStageState + 1);
+            setCurrentStageIndex(currentStageIndexState + 1);
         }, 200);
     };
 
@@ -40,8 +40,8 @@ const Pages = () => {
 
     const userAnswersContext = {
         stages: stages,
-        currentStage: currentStageState,
-        setCurrentStage: setCurrentStage,
+        currentStageIndex: currentStageIndexState,
+        setCurrentStageIndex: setCurrentStageIndex,
         incrementCurrentStage: incrementCurrentStage,
     };
 

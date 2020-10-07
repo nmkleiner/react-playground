@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import classes from "./style.module.scss";
 import InputLabel from "./InputLabel/InputLabel";
 
@@ -6,6 +6,8 @@ const InputField = (props) => {
     const {label, type, value, change, blur, enter} = props;
     const [labelFloatingState, setLabelFloating] = useState(false);
     const inputClasses = [classes.input, "primary-color"].join(" ");
+
+    const inputRef = useRef("input");
 
     const handleFocus = () => {
         setLabelFloating(true);
@@ -31,6 +33,8 @@ const InputField = (props) => {
     };
 
     useEffect(() => {
+        inputRef.current.focus();
+
         if (value !== "") {
             setLabelFloating(true);
         }
@@ -44,6 +48,7 @@ const InputField = (props) => {
             />
             <input
                 className={inputClasses}
+                ref={inputRef}
                 type={type}
                 onChange={onChange}
                 onFocus={handleFocus}

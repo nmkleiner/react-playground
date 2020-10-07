@@ -19,7 +19,6 @@ const GetFramework = () => {
     const {answer, setAnswer }= stage;
 
     const select = (framework) => {
-        console.log(framework);
         setAnswer(framework);
     };
 

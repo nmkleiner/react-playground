@@ -10,19 +10,20 @@ import UserAnswersContext from "../../../Context/UserAnswersContext";
 const dateFormat = "DD/MM/YY";
 
 class GetStartDate extends Component {
-
+    index = 4;
     static contextType = UserAnswersContext;
+    stage = this.context.stages[this.index];
 
     state = {
         focused: false,
-        date: this.context.startDate ? moment(this.context.startDate, dateFormat) : null,
+        date: this.stage.answer ? moment(this.stage.answer, dateFormat) : null,
     };
 
     handleDateChange = (date) => {
         this.setState({date});
         const dateString = date.format(dateFormat);
 
-        this.context.setStartDate(dateString);
+        this.stage.setAnswer(dateString);
     };
 
     render() {

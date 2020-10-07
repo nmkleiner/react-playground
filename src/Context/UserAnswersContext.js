@@ -3,7 +3,7 @@ import * as React from "react";
 const UserAnswersContext = React.createContext({
     stages: [],
     currentStage: "",
-    setCurrentStage: () => null,
+    setCurrentStageIndex: () => null,
     incrementCurrentStage: () => null,
 });
 

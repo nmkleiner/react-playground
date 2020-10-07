@@ -8,10 +8,10 @@ import UserAnswersContext from "../../../Context/UserAnswersContext";
 
 
 const GetSalary = () => {
-    const userAnswersContext = useContext(UserAnswersContext);
-    const {setExpectedSalary} = userAnswersContext;
-
+    const minSalary = 16;
+    const maxSalary = 20;
     const [presentedSalaryState, setPresentedSalary] = useState(18);
+    const validSalary = presentedSalaryState >= minSalary && presentedSalaryState < maxSalary;
 
     const updatePresentedSalary = (n) => {
         const updatedSalary = presentedSalaryState + n;
@@ -21,10 +21,13 @@ const GetSalary = () => {
         }
     };
 
-    const minSalary = 16;
-    const maxSalary = 20;
-    const validSalary = presentedSalaryState >= minSalary && presentedSalaryState < maxSalary;
-    const actionButtonClick = () => setExpectedSalary(presentedSalaryState);
+    const index = 3;
+    const userAnswersContext = useContext(UserAnswersContext);
+    const {stages} = userAnswersContext;
+    const stage = stages[index];
+    const {setAnswer} = stage;
+
+    const actionButtonClick = () => setAnswer(presentedSalaryState);
 
 
     let actionButtonText = "ok";

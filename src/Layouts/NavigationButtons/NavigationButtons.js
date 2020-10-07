@@ -6,12 +6,12 @@ import UserAnswersContext from "../../Context/UserAnswersContext";
 
 const NavigationButtons = () => {
     const userAnswersContext = useContext(UserAnswersContext);
-    const {currentStage, setCurrentStage} = userAnswersContext;
+    const {currentStageIndex, setCurrentStageIndex} = userAnswersContext;
 
-    const backButton = currentStage > 0 && (
+    const backButton = currentStageIndex > 0 && (
         <button
             className={classes.navigationButton}
-            onClick={() => setCurrentStage(currentStage - 1)}
+            onClick={() => setCurrentStageIndex(currentStageIndex - 1)}
         >
             <FontAwesomeIcon icon={faArrowLeft}/> back
         </button>

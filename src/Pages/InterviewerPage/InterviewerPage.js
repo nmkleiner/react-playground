@@ -6,16 +6,16 @@ import {Redirect} from "react-router-dom";
 
 const InterviewerPage = () => {
     const userAnswersContext = useContext(UserAnswersContext);
-    const {currentStage, stages} = userAnswersContext;
+    const {currentStageIndex, stages} = userAnswersContext;
 
-    const currentStageComponent = stages[currentStage].component;
-    const interviewComplete = currentStage === stages.length;
+    const interviewComplete = currentStageIndex === stages.length;
+
 
     return interviewComplete ? <Redirect to="/confirmation"/> : (
         <div className={classes.InterviewerPage}>
             <div className={classes.stagesContainer}>
                 <div className={classes.stageContainer + " column"}>
-                    {currentStageComponent}
+                    {stages[currentStageIndex].component}
                 </div>
                 <NavigationButtons/>
             </div>
