@@ -7,7 +7,7 @@ import ActionButton from "../../../Components/ActionButton/ActionButton";
 import UserAnswersContext from "../../../Context/UserAnswersContext";
 
 
-const GetSalaryExpectation = () => {
+const GetSalary = () => {
     const userAnswersContext = useContext(UserAnswersContext);
     const {setExpectedSalary} = userAnswersContext;
 
@@ -62,4 +62,4 @@ const GetSalaryExpectation = () => {
     );
 };
 
-export default GetSalaryExpectation;
+export default GetSalary;

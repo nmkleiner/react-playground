@@ -4,18 +4,24 @@ import InputGroup from "../../../Components/Inputs/InputGroup/InputGroup";
 import UserAnswersContext from "../../../Context/UserAnswersContext";
 
 const GetName = () => {
-    const userAnswersContext = useContext(UserAnswersContext);
-    const {name, setName} = userAnswersContext;
-
     const inputName = "name";
     const type = InputTypes.TEXT;
+    const index = 0;
+
+    const userAnswersContext = useContext(UserAnswersContext);
+    const {incrementCurrentStage, stages} = userAnswersContext;
+    const stage = stages[index];
+    const {answer, setAnswer }= stage;
+
 
     return (
         <InputGroup
             label={inputName}
             type={type}
-            value={name}
-            change={setName}
+            value={answer}
+            change={setAnswer}
+            blur={incrementCurrentStage}
+            enter={incrementCurrentStage}
         >
             Welcome! What is your name?
         </InputGroup>

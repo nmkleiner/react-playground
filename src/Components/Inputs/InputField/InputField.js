@@ -3,7 +3,7 @@ import classes from "./style.module.scss";
 import InputLabel from "./InputLabel/InputLabel";
 
 const InputField = (props) => {
-    const {label, type, value, change} = props;
+    const {label, type, value, change, blur, enter} = props;
     const [labelFloatingState, setLabelFloating] = useState(false);
     const inputClasses = [classes.input, "primary-color"].join(" ");
 
@@ -11,15 +11,27 @@ const InputField = (props) => {
         setLabelFloating(true);
     };
 
-    const handleBlur = () => {
-        setLabelFloating(false);
+    const handleBlur = (event) => {
+        const {value} = event.target;
+        if (!value) {
+            setLabelFloating(false);
+        } else {
+            blur();
+        }
     };
 
-    const onChange = (event) => change(event.target.value);
+    const onChange = (event) => {
+        change(event.target.value);
+    };
+
+    const onKeyDown = (event) => {
+        if (event.key === "Enter" && value) {
+            enter();
+        }
+    };
 
     useEffect(() => {
         if (value !== "") {
-            console.log(value);
             setLabelFloating(true);
         }
     }, []);
@@ -37,6 +49,7 @@ const InputField = (props) => {
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 value={value}
+                onKeyDown={onKeyDown}
             />
         </div>
     );

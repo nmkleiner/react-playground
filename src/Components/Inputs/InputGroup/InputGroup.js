@@ -4,7 +4,7 @@ import InputField from "../../../Components/Inputs/InputField/InputField";
 import * as PropTypes from "prop-types";
 
 const InputGroup = (props) => {
-    const {label, type, value, change, children} = props;
+    const {label, type, value, change, blur, enter, children} = props;
 
     return (
         <div className={classes.InputGroup}>
@@ -14,6 +14,8 @@ const InputGroup = (props) => {
                 type={type}
                 value={value}
                 change={change}
+                blur={blur}
+                enter={enter}
             />
         </div>
     );

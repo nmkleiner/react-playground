@@ -1,0 +1,30 @@
+.AnswerConfirmation {
+  position: relative;
+  width: 100%;
+  font-size: 18px;
+  text-transform: capitalize;
+  padding: 20px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+  .name {
+    text-transform: capitalize;
+    margin-right: 100px;
+  }
+
+  .answer {
+    text-transform: capitalize;
+  }
+
+  svg {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 0;
+  }
+}
+
+.breakline {
+  height: 1px;
+  width: 80%;
+  opacity: 0.4;
+}

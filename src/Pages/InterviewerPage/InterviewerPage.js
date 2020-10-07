@@ -1,34 +1,17 @@
 import React, {useContext} from "react";
 import classes from "./style.module.scss";
-import GetSalaryExpectation from "../../Layouts/Stages/GetSalaryExpectation/GetSalaryExpectation";
-import GetName from "../../Layouts/Stages/GetName/GetName";
-import GetPreferredFramework from "../../Layouts/Stages/GetPreferredFramework/GetPreferredFramework";
 import NavigationButtons from "../../Layouts/NavigationButtons/NavigationButtons";
-import GetExperience from "../../Layouts/Stages/GetExperience/GetExperience";
-import GetStartDate from "../../Layouts/Stages/GetStartDate/GetStartDate";
 import UserAnswersContext from "../../Context/UserAnswersContext";
+import {Redirect} from "react-router-dom";
 
 const InterviewerPage = () => {
     const userAnswersContext = useContext(UserAnswersContext);
-    const {currentStage} = userAnswersContext;
+    const {currentStage, stages} = userAnswersContext;
 
-    const getNameComponent = (<GetName/>);
-    const getExperienceComponent = (<GetExperience/>);
-    const getPreferredFrameworkComponent = (<GetPreferredFramework/>);
-    const getSalaryExpectationComponent = (<GetSalaryExpectation/>);
-    const getStartDateComponent = (<GetStartDate/>);
+    const currentStageComponent = stages[currentStage].component;
+    const interviewComplete = currentStage === stages.length;
 
-    const stages = [
-        getNameComponent,
-        getExperienceComponent,
-        getPreferredFrameworkComponent,
-        getSalaryExpectationComponent,
-        getStartDateComponent,
-    ];
-
-    const currentStageComponent = stages[currentStage];
-
-    return (
+    return interviewComplete ? <Redirect to="/confirmation"/> : (
         <div className={classes.InterviewerPage}>
             <div className={classes.stagesContainer}>
                 <div className={classes.stageContainer + " column"}>

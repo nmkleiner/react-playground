@@ -4,11 +4,7 @@ import {faAngular, faReact, faVuejs} from "@fortawesome/free-brands-svg-icons";
 import RadioGroup from "../../../Components/Inputs/RadioGroup/RadioGroup";
 import UserAnswersContext from "../../../Context/UserAnswersContext";
 
-const GetPreferredFramework = () => {
-
-    const userAnswersContext = useContext(UserAnswersContext);
-    const {framework, setFramework} = userAnswersContext;
-
+const GetFramework = () => {
     const message = "Which is your preferred frontend framework/library?";
     const radioButtons = [
         {id: "angular", label: "angular", icon: faAngular},
@@ -16,15 +12,22 @@ const GetPreferredFramework = () => {
         {id: "vue", label: "vue", icon: faVuejs},
     ];
 
+    const index = 2;
+    const userAnswersContext = useContext(UserAnswersContext);
+    const {stages} = userAnswersContext;
+    const stage = stages[index];
+    const {answer, setAnswer }= stage;
+
     const select = (framework) => {
-        setFramework(framework);
+        console.log(framework);
+        setAnswer(framework);
     };
 
     return (
         <div className={classes.PreferredFramework}>
             <span className={classes.message}>{message}</span>
             <RadioGroup
-                selectedValue={framework}
+                selectedValue={answer}
                 select={select}
                 radioButtons={radioButtons}
             />
@@ -32,4 +35,4 @@ const GetPreferredFramework = () => {
     );
 };
 
-export default GetPreferredFramework;
+export default GetFramework;
