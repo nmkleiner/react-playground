@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import InterviewerPage from "../Pages/InterviewerPage/InterviewerPage";
 import Header from "../Layouts/Header/Header";
 import UserAnswersContext from "../Context/UserAnswersContext";
-import {BrowserRouter, Route} from "react-router-dom";
+import {BrowserRouter, Route, useParams} from "react-router-dom";
 import ConfirmationPage from "../Pages/ConfirmationPage/ConfirmationPage";
 import GetName from "../Layouts/Stages/GetName/GetName";
 import GetExperience from "../Layouts/Stages/GetExperience/GetExperience";
@@ -10,10 +10,9 @@ import GetFramework from "../Layouts/Stages/GetFramework/GetFramework";
 import GetSalaryExpectation from "../Layouts/Stages/GetSalary/GetSalary";
 import GetStartDate from "../Layouts/Stages/GetStartDate/GetStartDate";
 import GetFullstack from "../Layouts/Stages/GetFullstack/GetFullstack";
+import AfterSubmitPage from "./AfterSubmitPage/AfterSubmitPage";
 
 const Pages = () => {
-    const [currentStageIndexState, setCurrentStageIndex] = useState(0);
-
     const [nameState, setName] = useState("");
     const [experienceState, setExperience] = useState("");
     const [frameworkState, setFramework] = useState("");
@@ -21,14 +20,8 @@ const Pages = () => {
     const [salaryState, setSalary] = useState(15);
     const [startDateState, setStartDate] = useState("");
 
-    const incrementCurrentStage = () => {
-        setTimeout(() => {
-            setCurrentStageIndex(currentStageIndexState + 1);
-        }, 200);
-    };
 
     const stages = [
-
         {
             component: <GetName/>,
             question: "name",
@@ -69,9 +62,6 @@ const Pages = () => {
 
     const userAnswersContext = {
         stages: stages,
-        currentStageIndex: currentStageIndexState,
-        setCurrentStageIndex: setCurrentStageIndex,
-        incrementCurrentStage: incrementCurrentStage,
     };
 
     return (
@@ -80,7 +70,8 @@ const Pages = () => {
                 <Header/>
                 <BrowserRouter>
                     <Route path="/confirmation" exact component={ConfirmationPage}/>
-                    <Route path="/interviewer" component={InterviewerPage}/>
+                    <Route path="/interviewer/:index" component={InterviewerPage}/>
+                    <Route path="/confirmed" component={AfterSubmitPage}/>
                 </BrowserRouter>
             </UserAnswersContext.Provider>
         </div>

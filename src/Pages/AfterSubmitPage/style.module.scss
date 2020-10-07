@@ -1,0 +1,33 @@
+.AfterSubmitPage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+
+  .container {
+    width: 320px;
+    height: 320px;
+    display: flex;
+    border: 1px solid #ff0083;
+    border-radius: 500px;
+    //background-color: #282828;
+
+    .text {
+      color: #ff0083;
+      font-size: 24px;
+      display: block;
+      height: fit-content;
+      font-family: "Dancing Script", sans-serif;
+    }
+
+    .text1 {
+      margin-left: 20px;
+      margin-top: 100px;
+    }
+
+    .text2 {
+      margin-left: 35px;
+      margin-top: 200px;
+    }
+  }
+}

@@ -2,22 +2,28 @@ import React, {useContext} from "react";
 import classes from "./style.module.scss";
 import NavigationButtons from "../../Layouts/NavigationButtons/NavigationButtons";
 import UserAnswersContext from "../../Context/UserAnswersContext";
-import {Redirect} from "react-router-dom";
+import {useHistory, useParams, Redirect} from "react-router-dom";
 
-const InterviewerPage = (props) => {
-    console.log(props);
+const InterviewerPage = () => {
+    let {index} = useParams();
+    const history = useHistory();
+
+    if (!index) {
+        index = 1;
+        history.push("/interviewer/1")
+    }
+    console.log(index);
+    const stageIndex = +index - 1;
 
     const userAnswersContext = useContext(UserAnswersContext);
-    const {currentStageIndex, stages} = userAnswersContext;
+    const {stages} = userAnswersContext;
+    const currentStage = stages[stageIndex];
 
-    const interviewComplete = currentStageIndex === stages.length;
-
-
-    return interviewComplete ? <Redirect to="/confirmation"/> : (
+    return !currentStage ? <Redirect to="/confirmation"/> : (
         <div className={classes.InterviewerPage}>
             <div className={classes.stagesContainer}>
                 <div className={classes.stageContainer + " column"}>
-                    {stages[currentStageIndex].component}
+                    {currentStage.component}
                 </div>
                 <NavigationButtons/>
             </div>
