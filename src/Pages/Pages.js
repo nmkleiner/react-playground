@@ -14,12 +14,12 @@ import GetFullstack from "../Layouts/Stages/GetFullstack/GetFullstack";
 const Pages = () => {
     const [currentStageIndexState, setCurrentStageIndex] = useState(0);
 
-    const [nameState, setName] = useState("noam");
-    const [experienceState, setExperience] = useState("2");
-    const [frameworkState, setFramework] = useState("vue");
-    const [fullstackState, setFullstack] = useState("yes");
-    const [salaryState, setSalary] = useState(20);
-    const [startDateState, setStartDate] = useState("20/10/20");
+    const [nameState, setName] = useState("");
+    const [experienceState, setExperience] = useState("");
+    const [frameworkState, setFramework] = useState("");
+    const [fullstackState, setFullstack] = useState("");
+    const [salaryState, setSalary] = useState(15);
+    const [startDateState, setStartDate] = useState("");
 
     const incrementCurrentStage = () => {
         setTimeout(() => {
@@ -27,12 +27,8 @@ const Pages = () => {
         }, 200);
     };
 
-    const setAndIncrementStage = (func) => (arg) => {
-        func(arg);
-        incrementCurrentStage();
-    };
-
     const stages = [
+
         {
             component: <GetName/>,
             question: "name",
@@ -49,25 +45,25 @@ const Pages = () => {
             component: <GetFramework/>,
             question: "preferred framework",
             answer: frameworkState,
-            setAnswer: setAndIncrementStage(setFramework),
+            setAnswer: setFramework,
         },
         {
             component: <GetFullstack/>,
             question: "fullstack",
             answer: fullstackState,
-            setAnswer: setAndIncrementStage(setFullstack),
+            setAnswer: setFullstack,
         },
         {
             component: <GetSalaryExpectation/>,
             question: "salary expectation",
             answer: salaryState,
-            setAnswer: setAndIncrementStage(setSalary),
+            setAnswer: setSalary,
         },
         {
             component: <GetStartDate/>,
             question: "start date",
             answer: startDateState,
-            setAnswer: setAndIncrementStage(setStartDate),
+            setAnswer: setStartDate,
         },
     ];
 

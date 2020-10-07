@@ -7,7 +7,7 @@ const RoundButton = ({click, children}) => {
     return (
         <button
             className={buttonClasses}
-            onClick={click()}
+            onClick={click}
         >
             {children}
         </button>

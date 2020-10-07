@@ -18,7 +18,9 @@ const InputField = (props) => {
         if (!value) {
             setLabelFloating(false);
         } else {
-            blur();
+            if (blur) {
+                blur();
+            }
         }
     };
 

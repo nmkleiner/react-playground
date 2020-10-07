@@ -10,7 +10,7 @@ const GetExperience = () => {
     const index = 1;
 
     const userAnswersContext = useContext(UserAnswersContext);
-    const {incrementCurrentStage, stages} = userAnswersContext;
+    const {stages} = userAnswersContext;
     const stage = stages[index];
     const {answer, setAnswer }= stage;
 
@@ -20,8 +20,6 @@ const GetExperience = () => {
             type={type}
             value={answer}
             change={setAnswer}
-            blur={incrementCurrentStage}
-            enter={incrementCurrentStage}
         >
             How many years of experience do you have?
         </InputGroup>

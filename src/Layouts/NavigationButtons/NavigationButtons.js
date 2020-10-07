@@ -6,7 +6,7 @@ import UserAnswersContext from "../../Context/UserAnswersContext";
 
 const NavigationButtons = () => {
     const userAnswersContext = useContext(UserAnswersContext);
-    const {currentStageIndex, setCurrentStageIndex, stages} = userAnswersContext;
+    const {currentStageIndex, setCurrentStageIndex, stages, incrementCurrentStage} = userAnswersContext;
     const currentStage = stages[currentStageIndex];
     const isBackButtonVisible = currentStageIndex > 0;
     const isNextButtonVisible = currentStage.answer;
@@ -26,7 +26,7 @@ const NavigationButtons = () => {
         <button
             style={{visibility: getVisibility(isNextButtonVisible)}}
             className={classes.navigationButton}
-            onClick={() => setCurrentStageIndex(currentStageIndex - 1)}
+            onClick={incrementCurrentStage}
         >
             next <FontAwesomeIcon icon={faArrowRight}/>
         </button>
