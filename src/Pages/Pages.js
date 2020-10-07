@@ -9,15 +9,17 @@ import GetExperience from "../Layouts/Stages/GetExperience/GetExperience";
 import GetFramework from "../Layouts/Stages/GetFramework/GetFramework";
 import GetSalaryExpectation from "../Layouts/Stages/GetSalary/GetSalary";
 import GetStartDate from "../Layouts/Stages/GetStartDate/GetStartDate";
+import GetFullstack from "../Layouts/Stages/GetFullstack/GetFullstack";
 
 const Pages = () => {
     const [currentStageIndexState, setCurrentStageIndex] = useState(0);
 
-    const [nameState, setName] = useState("");
-    const [experienceState, setExperience] = useState("");
-    const [frameworkState, setFramework] = useState("");
-    const [salaryState, setSalary] = useState();
-    const [startDateState, setStartDate] = useState("");
+    const [nameState, setName] = useState("noam");
+    const [experienceState, setExperience] = useState("2");
+    const [frameworkState, setFramework] = useState("vue");
+    const [fullstackState, setFullstack] = useState("yes");
+    const [salaryState, setSalary] = useState(20);
+    const [startDateState, setStartDate] = useState("20/10/20");
 
     const incrementCurrentStage = () => {
         setTimeout(() => {
@@ -31,11 +33,42 @@ const Pages = () => {
     };
 
     const stages = [
-        {component: <GetName/>, answer: nameState, setAnswer: setName},
-        {component: <GetExperience/>, answer: experienceState, setAnswer: setExperience},
-        {component: <GetFramework/>, answer: frameworkState, setAnswer: setAndIncrementStage(setFramework)},
-        {component: <GetSalaryExpectation/>, answer: salaryState, setAnswer: setAndIncrementStage(setSalary)},
-        {component: <GetStartDate/>, answer: startDateState, setAnswer: setAndIncrementStage(setStartDate)},
+        {
+            component: <GetName/>,
+            question: "name",
+            answer: nameState,
+            setAnswer: setName,
+        },
+        {
+            component: <GetExperience/>,
+            question: "experience",
+            answer: experienceState,
+            setAnswer: setExperience,
+        },
+        {
+            component: <GetFramework/>,
+            question: "preferred framework",
+            answer: frameworkState,
+            setAnswer: setAndIncrementStage(setFramework),
+        },
+        {
+            component: <GetFullstack/>,
+            question: "fullstack",
+            answer: fullstackState,
+            setAnswer: setAndIncrementStage(setFullstack),
+        },
+        {
+            component: <GetSalaryExpectation/>,
+            question: "salary expectation",
+            answer: salaryState,
+            setAnswer: setAndIncrementStage(setSalary),
+        },
+        {
+            component: <GetStartDate/>,
+            question: "start date",
+            answer: startDateState,
+            setAnswer: setAndIncrementStage(setStartDate),
+        },
     ];
 
     const userAnswersContext = {
@@ -51,7 +84,7 @@ const Pages = () => {
                 <Header/>
                 <BrowserRouter>
                     <Route path="/confirmation" exact component={ConfirmationPage}/>
-                    <Route path="/interviewer" exact component={InterviewerPage}/>
+                    <Route path="/interviewer" component={InterviewerPage}/>
                 </BrowserRouter>
             </UserAnswersContext.Provider>
         </div>

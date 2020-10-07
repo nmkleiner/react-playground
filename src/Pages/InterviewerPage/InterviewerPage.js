@@ -4,7 +4,9 @@ import NavigationButtons from "../../Layouts/NavigationButtons/NavigationButtons
 import UserAnswersContext from "../../Context/UserAnswersContext";
 import {Redirect} from "react-router-dom";
 
-const InterviewerPage = () => {
+const InterviewerPage = (props) => {
+    console.log(props);
+
     const userAnswersContext = useContext(UserAnswersContext);
     const {currentStageIndex, stages} = userAnswersContext;
 

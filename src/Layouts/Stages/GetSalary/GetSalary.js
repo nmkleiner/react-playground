@@ -1,7 +1,7 @@
 import React, {useContext, useState} from "react";
-import "./style.scss";
+import classes from "./style.module.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faMinus, faPlus} from "@fortawesome/free-solid-svg-icons";
+import {faMinus, faPlus, faShekelSign} from "@fortawesome/free-solid-svg-icons";
 import RoundButton from "../../../Components/RoundButton/RoundButton";
 import ActionButton from "../../../Components/ActionButton/ActionButton";
 import UserAnswersContext from "../../../Context/UserAnswersContext";
@@ -21,7 +21,7 @@ const GetSalary = () => {
         }
     };
 
-    const index = 3;
+    const index = 4;
     const userAnswersContext = useContext(UserAnswersContext);
     const {stages} = userAnswersContext;
     const stage = stages[index];
@@ -40,12 +40,12 @@ const GetSalary = () => {
     }
 
     return (
-        <div className="salary-expectation">
-            <div className="row">
-                <div>What are your salary expectations?
-                    <span className="primary-color"> {presentedSalaryState}K</span>
+        <div className={classes.SalaryExpectation}>
+            <div className={classes.row + " row"}>
+                <div className={classes.message}>What are your salary expectations?
+                    <span className="primary-color"> <FontAwesomeIcon icon={faShekelSign}/>{presentedSalaryState}K</span>
                 </div>
-                <div className="buttons-wrapper ">
+                <div className={classes.buttonsWrapper}>
                     <RoundButton click={() => updatePresentedSalary.bind(this, -1)}>
                         <FontAwesomeIcon icon={faMinus}/>
                     </RoundButton>

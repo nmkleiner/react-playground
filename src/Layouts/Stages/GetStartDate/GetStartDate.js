@@ -10,7 +10,7 @@ import UserAnswersContext from "../../../Context/UserAnswersContext";
 const dateFormat = "DD/MM/YY";
 
 class GetStartDate extends Component {
-    index = 4;
+    index = 5;
     static contextType = UserAnswersContext;
     stage = this.context.stages[this.index];
 

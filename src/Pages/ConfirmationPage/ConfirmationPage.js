@@ -6,17 +6,21 @@ import UserAnswersContext from "../../Context/UserAnswersContext";
 
 const ConfirmationPage = () => {
     const userAnswersContext = useContext(UserAnswersContext);
+    const {stages} = userAnswersContext;
     console.log(userAnswersContext);
 
     return (
         <div className={classes.ConfirmationPage}>
             <div className={classes.answersContainer}>
                 <div className={classes.confirmationHeader}>Is everything correct?</div>
-                <AnswerConfirmation question="name" answer="noam"/>
-                <AnswerConfirmation question="name" answer="noam"/>
-                <AnswerConfirmation question="name" answer="noam"/>
+                {
+                    stages.map((stage) => <AnswerConfirmation
+                        question={stage.question}
+                        answer={stage.answer}
+                    />)
+                }
             </div>
-            <ActionButton click={() => null} >Submit</ActionButton>
+            <ActionButton click={() => null}>Submit</ActionButton>
         </div>
     );
 };
