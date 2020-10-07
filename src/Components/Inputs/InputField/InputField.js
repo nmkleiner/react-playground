@@ -33,7 +33,7 @@ const InputField = (props) => {
     };
 
     useEffect(() => {
-        inputRef.current.focus();
+        // inputRef.current.focus();
 
         if (value !== "") {
             setLabelFloating(true);

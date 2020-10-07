@@ -1,8 +1,7 @@
 
 .NavigationButtons {
   display: flex;
-  justify-content: flex-start;
-  width: 330px;
+  justify-content: space-between;
 
   .navigationButton {
     cursor: pointer;
