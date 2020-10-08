@@ -1,11 +1,7 @@
 import React, {useState} from "react";
-import GetName from "../Layouts/Stages/GetName/GetName";
-import GetExperience from "../Layouts/Stages/GetExperience/GetExperience";
-import GetFramework from "../Layouts/Stages/GetFramework/GetFramework";
-import GetSalaryExpectation from "../Layouts/Stages/GetSalary/GetSalary";
-import GetStartDate from "../Layouts/Stages/GetStartDate/GetStartDate";
-import GetFullstack from "../Layouts/Stages/GetFullstack/GetFullstack";
 import UserAnswersContext from "../Context/UserAnswersContext";
+import {InputComponents, InputTypes} from "../Enums/InputTypes";
+import {faAngular, faReact, faVuejs} from "@fortawesome/free-brands-svg-icons";
 
 const FormConfig = (props) => {
     const [nameState, setName] = useState("");
@@ -19,45 +15,61 @@ const FormConfig = (props) => {
     const stages = [
         {
             id: "name",
-            component: <GetName/>,
             question: "name",
             answer: nameState,
             setAnswer: setName,
+            text: "Welcome! What is your name?",
+            type: InputTypes.TEXT,
+            inputComponent: InputComponents.INPUT_GROUP,
         },
         {
             id: "experience",
-            component: <GetExperience/>,
             question: "experience",
             answer: experienceState,
             setAnswer: setExperience,
+            text: "How many years of experience do you have?",
+            inputComponent: InputComponents.INPUT_GROUP,
         },
         {
             id: "framework",
-            component: <GetFramework/>,
             question: "preferred framework",
             answer: frameworkState,
             setAnswer: setFramework,
+            text: "Which is your preferred frontend framework/library?",
+            inputComponent: InputComponents.RADIO_GROUP,
+            options: [
+                {id: "angular", label: "angular", icon: faAngular},
+                {id: "react", label: "react", icon: faReact},
+                {id: "vue", label: "vue", icon: faVuejs},
+            ],
         },
         {
             id: "fullstack",
-            component: <GetFullstack/>,
             question: "fullstack",
             answer: fullstackState,
             setAnswer: setFullstack,
+            text: "Do you consider yourself a fullstack developer?",
+            inputComponent: InputComponents.RADIO_GROUP,
+            options: [
+                {id: "yes", label: "yes"},
+                {id: "no", label: "no"},
+            ],
         },
         {
             id: "salary",
-            component: <GetSalaryExpectation/>,
             question: "salary expectation",
             answer: salaryState,
             setAnswer: setSalary,
+            text: "What are your salary expectations?",
+            inputComponent: InputComponents.SALARY,
         },
         {
             id: "start",
-            component: <GetStartDate/>,
             question: "start date",
             answer: startDateState,
             setAnswer: setStartDate,
+            text: "When can you start working?",
+            inputComponent: InputComponents.DATEPICKER,
         },
     ];
 
@@ -70,6 +82,6 @@ const FormConfig = (props) => {
             {props.children}
         </UserAnswersContext.Provider>
     );
-}
+};
 
 export default FormConfig;

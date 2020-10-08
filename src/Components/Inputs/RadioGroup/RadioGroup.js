@@ -3,10 +3,10 @@ import classes from "./style.module.scss";
 import RadioButton from "./RadioButton/RadioButton";
 
 
-const RadioGroup = (props) => {
-    const {radioButtons, selectedValue, select} = props;
+const RadioGroup = ({options, question, text, type, answer, setAnswer}) => {
 
-    const [checkedRadioStates, setCheckedRadioStates] = useState(radioButtons.map(() => false));
+
+    const [checkedRadioStates, setCheckedRadioStates] = useState(options.map(() => false));
 
     const setCheckedRadioByIndex = (radioIndex) => {
         const updatedCheckedRadioStates = checkedRadioStates.map((_, index) => index === radioIndex);
@@ -14,32 +14,35 @@ const RadioGroup = (props) => {
     };
 
     const selectRadioButton = (radioIndex) => {
-        const selectedRadioButton = radioButtons[radioIndex];
-        select(selectedRadioButton.id);
+        const selectedRadioButton = options[radioIndex];
+        setAnswer(selectedRadioButton.id);
     };
 
-    if (selectedValue) {
+    if (answer) {
         if (checkedRadioStates.every((isChecked) => !isChecked)) {
-            const selectedRadioIndex = radioButtons.findIndex((radioButton) => radioButton.id === selectedValue);
+            const selectedRadioIndex = options.findIndex((radioButton) => radioButton.id === answer);
             setCheckedRadioByIndex(selectedRadioIndex);
         }
     }
 
     return (
-        <div className={classes.RadioGroup}>
-            {radioButtons.map((radioButton, index) =>
-                <RadioButton
-                    key={radioButton.id}
-                    id={radioButton.id}
-                    label={radioButton.label}
-                    icon={radioButton.icon}
-                    checked={checkedRadioStates[index]}
-                    check={() => {
-                        setCheckedRadioByIndex(index);
-                        selectRadioButton(index);
-                    }}
-                />,
-            )}
+        <div className={classes.Container}>
+            <span className={classes.message}>{text}</span>
+            <div className={classes.RadioGroup}>
+                {options.map((radioButton, index) =>
+                    <RadioButton
+                        key={radioButton.id}
+                        id={radioButton.id}
+                        label={radioButton.label}
+                        icon={radioButton.icon}
+                        checked={checkedRadioStates[index]}
+                        check={() => {
+                            setCheckedRadioByIndex(index);
+                            selectRadioButton(index);
+                        }}
+                    />,
+                )}
+            </div>
         </div>
     );
 };

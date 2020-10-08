@@ -1,17 +1,12 @@
-import React, {useContext, useState} from "react";
+import React from "react";
 import classes from "./style.module.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faMinus, faPlus, faShekelSign} from "@fortawesome/free-solid-svg-icons";
-import RoundButton from "../../../Components/RoundButton/RoundButton";
-import UserAnswersContext from "../../../Context/UserAnswersContext";
+import RoundButton from "../../RoundButton/RoundButton";
 
 
-const GetSalary = () => {
-    const index = 4;
-    const userAnswersContext = useContext(UserAnswersContext);
-    const {stages} = userAnswersContext;
-    const stage = stages[index];
-    const {setAnswer, answer} = stage;
+const SalaryInput = ({text, type, answer, setAnswer}) => {
+
     const onClick = (num) => {
         const updatedAnswer = answer + num;
         if (updatedAnswer > 10) {
@@ -22,7 +17,7 @@ const GetSalary = () => {
     return (
         <div className={classes.SalaryExpectation}>
             <div className={classes.row + " row"}>
-                <div className={classes.message}>What are your salary expectations?
+                <div className={classes.message}>{text}
                     <span className="primary-color"> <FontAwesomeIcon icon={faShekelSign}/>{answer}K</span>
                 </div>
                 <div className={classes.buttonsWrapper}>
@@ -38,4 +33,4 @@ const GetSalary = () => {
     );
 };
 
-export default GetSalary;
+export default SalaryInput;

@@ -3,7 +3,7 @@ import "./App.scss";
 import "./Assets/Scss/index.scss";
 import {BrowserRouter} from "react-router-dom";
 import Pages from "./Pages/Pages";
-import FormConfig from "./HOC/FormConfig";
+import FormConfig from "./Containers/FormConfig";
 
 const App = () => {
     return (

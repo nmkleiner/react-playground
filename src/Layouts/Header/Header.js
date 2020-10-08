@@ -1,7 +1,6 @@
 import React, {useContext} from "react";
 import classes from "./style.module.scss";
 import Logo from "../../Components/Logo/Logo";
-import Heading from "../../Components/Heading/Heading";
 import UserAnswersContext from "../../Context/UserAnswersContext";
 
 const Header = () => {
@@ -16,7 +15,7 @@ const Header = () => {
         <header className={classes.header}>
             <div className={classes.row + " row"}>
                 <Logo/>
-                <Heading text={headingText}/>
+                <div className={classes.heading}>{headingText}</div>
             </div>
             {welcomeName}
         </header>

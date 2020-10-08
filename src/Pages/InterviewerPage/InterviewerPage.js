@@ -3,6 +3,7 @@ import classes from "./style.module.scss";
 import NavigationButtons from "../../Layouts/NavigationButtons/NavigationButtons";
 import UserAnswersContext from "../../Context/UserAnswersContext";
 import {Redirect, useLocation, useParams} from "react-router-dom";
+import DynamicInput from "../../Components/Inputs/DynamicInput";
 
 
 const InterviewerPage = () => {
@@ -12,10 +13,9 @@ const InterviewerPage = () => {
     let fixing = false;
     if (query) {
         const [param, value] = query.substring(1).split("=");
-        console.log(param, value);
+
         if (param === "fixing" && value === "1") {
             fixing = true;
-            console.log(fixing);
         }
     }
 
@@ -36,7 +36,7 @@ const InterviewerPage = () => {
         <div className={classes.InterviewerPage}>
             <div className={classes.stagesContainer}>
                 <div className={classes.stageContainer + " column"}>
-                    {currentStage.component}
+                    {<DynamicInput {...currentStage}/>}
                 </div>
                 <NavigationButtons fixing={fixing}/>
             </div>

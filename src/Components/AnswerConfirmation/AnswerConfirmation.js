@@ -3,7 +3,6 @@ import classes from "./style.module.scss";
 import AnswerEditButton from "../AnswerEditButton/AnswerEditButton";
 
 const AnswerConfirmation = ({question, answer, index}) => {
-    console.log(answer);
     return (
         <span className={classes.AnswerConfirmation}>
             <span className={classes.name}>{question + ": "}</span>
