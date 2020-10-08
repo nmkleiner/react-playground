@@ -1,79 +1,28 @@
-import React, {useState} from "react";
+import React, {Suspense} from "react";
 import InterviewerPage from "../Pages/InterviewerPage/InterviewerPage";
 import Header from "../Layouts/Header/Header";
-import UserAnswersContext from "../Context/UserAnswersContext";
-import {BrowserRouter, Route, useParams} from "react-router-dom";
-import ConfirmationPage from "../Pages/ConfirmationPage/ConfirmationPage";
-import GetName from "../Layouts/Stages/GetName/GetName";
-import GetExperience from "../Layouts/Stages/GetExperience/GetExperience";
-import GetFramework from "../Layouts/Stages/GetFramework/GetFramework";
-import GetSalaryExpectation from "../Layouts/Stages/GetSalary/GetSalary";
-import GetStartDate from "../Layouts/Stages/GetStartDate/GetStartDate";
-import GetFullstack from "../Layouts/Stages/GetFullstack/GetFullstack";
-import AfterSubmitPage from "./AfterSubmitPage/AfterSubmitPage";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+
 
 const Pages = () => {
-    const [nameState, setName] = useState("");
-    const [experienceState, setExperience] = useState("");
-    const [frameworkState, setFramework] = useState("");
-    const [fullstackState, setFullstack] = useState("");
-    const [salaryState, setSalary] = useState(15);
-    const [startDateState, setStartDate] = useState("");
+    const ConfirmationPage = React.lazy(() => import("./ConfirmationPage/ConfirmationPage"));
+    const AfterSubmitPage = React.lazy(() => import("./AfterSubmitPage/AfterSubmitPage"));
 
-
-    const stages = [
-        {
-            component: <GetName/>,
-            question: "name",
-            answer: nameState,
-            setAnswer: setName,
-        },
-        {
-            component: <GetExperience/>,
-            question: "experience",
-            answer: experienceState,
-            setAnswer: setExperience,
-        },
-        {
-            component: <GetFramework/>,
-            question: "preferred framework",
-            answer: frameworkState,
-            setAnswer: setFramework,
-        },
-        {
-            component: <GetFullstack/>,
-            question: "fullstack",
-            answer: fullstackState,
-            setAnswer: setFullstack,
-        },
-        {
-            component: <GetSalaryExpectation/>,
-            question: "salary expectation",
-            answer: salaryState,
-            setAnswer: setSalary,
-        },
-        {
-            component: <GetStartDate/>,
-            question: "start date",
-            answer: startDateState,
-            setAnswer: setStartDate,
-        },
-    ];
-
-    const userAnswersContext = {
-        stages: stages,
-    };
+    const loading = <div/>;
+    const lazyConfirmationPage = <Suspense fallback={loading}><ConfirmationPage/></Suspense>;
+    const lazyAfterSubmitPage = <Suspense fallback={loading}><AfterSubmitPage/></Suspense>;
 
     return (
         <div className="app">
-            <UserAnswersContext.Provider value={userAnswersContext}>
-                <Header/>
-                <BrowserRouter>
-                    <Route path="/confirmation" exact component={ConfirmationPage}/>
+            <Header/>
+            <BrowserRouter>
+                <Switch>
                     <Route path="/interviewer/:index" component={InterviewerPage}/>
-                    <Route path="/confirmed" component={AfterSubmitPage}/>
-                </BrowserRouter>
-            </UserAnswersContext.Provider>
+                    <Route path="/confirmation" exact render={() => lazyConfirmationPage}/>
+                    <Route path="/confirmed" exact render={() => lazyAfterSubmitPage}/>
+                    <Route path="/*" component={InterviewerPage}/>
+                </Switch>
+            </BrowserRouter>
         </div>
     );
 };

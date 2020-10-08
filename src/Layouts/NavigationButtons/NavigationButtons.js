@@ -3,22 +3,26 @@ import classes from "./style.module.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons";
 import UserAnswersContext from "../../Context/UserAnswersContext";
-import {Router, Redirect, useParams, useHistory} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 
-const NavigationButtons = () => {
+const NavigationButtons = ({fixing}) => {
     const {index} = useParams();
     const history = useHistory();
 
     const userAnswersContext = useContext(UserAnswersContext);
     const {stages} = userAnswersContext;
     const currentStage = stages[index - 1];
-    const isBackButtonVisible = index > 1;
+    const isBackButtonVisible = index > 1 && !fixing;
     const isNextButtonVisible = currentStage.answer;
     const getVisibility = (isVisible) => isVisible ? "visible" : "hidden";
 
     const navigate = (num) => {
-        const updatedIndex = +index + num;
-        history.push(`/interviewer/${updatedIndex}`)
+        if (fixing) {
+            history.push(`/confirmation`);
+        } else {
+            const updatedIndex = +index + num;
+            history.push(`/interviewer/${updatedIndex}`);
+        }
     };
 
     const backButton = (

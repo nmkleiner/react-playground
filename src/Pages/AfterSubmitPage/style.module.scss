@@ -10,7 +10,6 @@
     display: flex;
     border: 1px solid #ff0083;
     border-radius: 500px;
-    //background-color: #282828;
 
     .text {
       color: #ff0083;
@@ -18,6 +17,7 @@
       display: block;
       height: fit-content;
       font-family: "Dancing Script", sans-serif;
+      user-select: none;
     }
 
     .text1 {

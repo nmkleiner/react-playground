@@ -1,14 +1,14 @@
 import React from "react";
 import classes from "./style.module.scss";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faEdit} from "@fortawesome/free-solid-svg-icons";
+import AnswerEditButton from "../AnswerEditButton/AnswerEditButton";
 
-const AnswerConfirmation = ({question, answer}) => {
+const AnswerConfirmation = ({question, answer, index}) => {
+    console.log(answer);
     return (
         <span className={classes.AnswerConfirmation}>
             <span className={classes.name}>{question + ": "}</span>
             <span className={classes.answer + " primary-color"}>{answer}</span>
-            <FontAwesomeIcon icon={faEdit}/>
+            <AnswerEditButton index={index}/>
         </span>
     );
 };
