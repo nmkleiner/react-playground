@@ -10,6 +10,7 @@ const InputField = (props) => {
     const inputRef = useRef("input");
 
     const handleFocus = () => {
+        console.log("focus");
         setLabelFloating(true);
     };
 
@@ -35,8 +36,7 @@ const InputField = (props) => {
     };
 
     useEffect(() => {
-        // inputRef.current.focus();
-
+        console.log("useEffect", props.label);
         if (value !== "") {
             setLabelFloating(true);
         }

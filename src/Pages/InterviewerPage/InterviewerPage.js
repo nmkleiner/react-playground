@@ -36,7 +36,12 @@ const InterviewerPage = () => {
         <div className={classes.InterviewerPage}>
             <div className={classes.stagesContainer}>
                 <div className={classes.stageContainer + " column"}>
-                    {<DynamicInput {...currentStage}/>}
+                    {stages.map((stage, idx) => {
+                        if (idx === stageIndex) {
+                            return <DynamicInput key={stage.id} {...stage}/>;
+                        }
+                    })
+                    }
                 </div>
                 <NavigationButtons fixing={fixing}/>
             </div>
