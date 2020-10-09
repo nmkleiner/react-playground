@@ -4,10 +4,12 @@ import NavigationButtons from "../../Layouts/NavigationButtons/NavigationButtons
 import UserAnswersContext from "../../Context/UserAnswersContext";
 import {Redirect, useLocation, useParams} from "react-router-dom";
 import DynamicInput from "../../Components/Inputs/DynamicInput";
-
+import {useForm} from "react-hook-form";
 
 const InterviewerPage = () => {
     let {index} = useParams();
+    const {handleSubmit, register, errors} = useForm();
+
     const location = useLocation();
     const query = location.search;
     let fixing = false;
@@ -35,15 +37,19 @@ const InterviewerPage = () => {
     return (
         <div className={classes.InterviewerPage}>
             <div className={classes.stagesContainer}>
-                <div className={classes.stageContainer + " column"}>
-                    {stages.map((stage, idx) => {
-                        if (idx === stageIndex) {
-                            return <DynamicInput key={stage.id} {...stage}/>;
-                        }
-                    })
+                <form className={classes.stageContainer + " column"}>
+                    {
+                        stages.map((stage, idx) => {
+                            const error = errors[stage.id];
+
+                            return idx === stageIndex ?
+                                <DynamicInput error={error} register={register} key={stage.id} {...stage}/>
+                                :
+                                null;
+                        })
                     }
-                </div>
-                <NavigationButtons fixing={fixing}/>
+                </form>
+                <NavigationButtons handleSubmit={handleSubmit} fixing={fixing}/>
             </div>
         </div>
     );

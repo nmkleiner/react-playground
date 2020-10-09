@@ -5,7 +5,7 @@ import {faArrowLeft, faArrowRight} from "@fortawesome/free-solid-svg-icons";
 import UserAnswersContext from "../../Context/UserAnswersContext";
 import {useHistory, useParams} from "react-router-dom";
 
-const NavigationButtons = ({fixing}) => {
+const NavigationButtons = ({fixing, handleSubmit}) => {
     const {index} = useParams();
     const history = useHistory();
 
@@ -25,6 +25,12 @@ const NavigationButtons = ({fixing}) => {
         }
     };
 
+    const onSuccess = (_) => {
+        navigate(1);
+    };
+
+    const onError = () => null;
+
     const backButton = (
         <button
             style={{visibility: getVisibility(isBackButtonVisible)}}
@@ -39,7 +45,7 @@ const NavigationButtons = ({fixing}) => {
         <button
             style={{visibility: getVisibility(isNextButtonVisible)}}
             className={classes.navigationButton}
-            onClick={() => navigate(1)}
+            onClick={handleSubmit(onSuccess, onError)}
         >
             next <FontAwesomeIcon icon={faArrowRight}/>
         </button>

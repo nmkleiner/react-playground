@@ -5,6 +5,7 @@ import {faAngular, faReact, faVuejs} from "@fortawesome/free-brands-svg-icons";
 
 const FormConfig = (props) => {
     const [nameState, setName] = useState("");
+    const [emailState, setEmail] = useState("");
     const [experienceState, setExperience] = useState("");
     const [frameworkState, setFramework] = useState("");
     const [fullstackState, setFullstack] = useState("");
@@ -23,12 +24,23 @@ const FormConfig = (props) => {
             inputComponent: InputComponents.INPUT_GROUP,
         },
         {
+            id: "email",
+            question: "e-mail",
+            answer: emailState,
+            setAnswer: setEmail,
+            text: "What is your email address?",
+            type: InputTypes.EMAIL,
+            inputComponent: InputComponents.INPUT_GROUP,
+            rules: {pattern: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/},
+        },
+        {
             id: "experience",
             question: "experience",
             answer: experienceState,
             setAnswer: setExperience,
             text: "How many years of experience do you have?",
             inputComponent: InputComponents.INPUT_GROUP,
+            rules: {min: 1},
         },
         {
             id: "framework",

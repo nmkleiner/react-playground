@@ -1,16 +1,15 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useState} from "react";
 import classes from "./style.module.scss";
 import InputLabel from "./InputLabel/InputLabel";
 
 const InputField = (props) => {
-    const {label, type, value, change, blur, enter} = props;
+
+    const {id, question, type, value, setAnswer, blur, enter, register, rules, error} = props;
     const [labelFloatingState, setLabelFloating] = useState(false);
     const inputClasses = [classes.input, "primary-color"].join(" ");
 
-    const inputRef = useRef("input");
 
     const handleFocus = () => {
-        console.log("focus");
         setLabelFloating(true);
     };
 
@@ -26,7 +25,7 @@ const InputField = (props) => {
     };
 
     const onChange = (event) => {
-        change(event.target.value);
+        setAnswer(event.target.value);
     };
 
     const onKeyDown = (event) => {
@@ -36,7 +35,6 @@ const InputField = (props) => {
     };
 
     useEffect(() => {
-        console.log("useEffect", props.label);
         if (value !== "") {
             setLabelFloating(true);
         }
@@ -45,12 +43,13 @@ const InputField = (props) => {
     return (
         <div className={classes.InputField}>
             <InputLabel
-                label={label}
+                label={question}
                 isFloating={labelFloatingState}
             />
             <input
                 className={inputClasses}
-                ref={inputRef}
+                name={id}
+                ref={register(rules)}
                 type={type}
                 onChange={onChange}
                 onFocus={handleFocus}
@@ -58,6 +57,8 @@ const InputField = (props) => {
                 value={value}
                 onKeyDown={onKeyDown}
             />
+
+            {error && <p className="feedback" >error</p>}
         </div>
     );
 };

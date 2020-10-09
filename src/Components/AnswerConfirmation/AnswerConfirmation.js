@@ -6,7 +6,7 @@ const AnswerConfirmation = ({question, answer, index}) => {
     return (
         <span className={classes.AnswerConfirmation}>
             <span className={classes.name}>{question + ": "}</span>
-            <span className={classes.answer + " primary-color"}>{answer}</span>
+            <span className={"primary-color"}>{answer}</span>
             <AnswerEditButton index={index}/>
         </span>
     );
