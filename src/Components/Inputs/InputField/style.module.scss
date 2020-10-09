@@ -11,6 +11,18 @@
     padding-bottom: 5px;
   }
 
+  .feedback {
+    position: absolute;
+    color: red;
+
+    &:before {
+      content: "*";
+      color: red;
+      font-size: 14px;
+      margin-right: 5px;
+    }
+  }
+
   input[type=number] {
     -moz-appearance: textfield; /* Firefox */
   }

@@ -7,7 +7,9 @@ import RoundButton from "../../RoundButton/RoundButton";
 
 const SalaryInput = ({text, type, answer, setAnswer}) => {
 
-    const onClick = (num) => {
+    const onClick = (ev, num) => {
+        ev.preventDefault();
+
         const updatedAnswer = answer + num;
         if (updatedAnswer > 10) {
             setAnswer(updatedAnswer);
@@ -21,10 +23,10 @@ const SalaryInput = ({text, type, answer, setAnswer}) => {
                     <span className="primary-color"> <FontAwesomeIcon icon={faShekelSign}/>{answer}K</span>
                 </div>
                 <div className={classes.buttonsWrapper}>
-                    <RoundButton click={() => onClick(-1)}>
+                    <RoundButton click={(ev) => onClick(ev, -1)}>
                         <FontAwesomeIcon icon={faMinus}/>
                     </RoundButton>
-                    <RoundButton click={() => onClick(1)}>
+                    <RoundButton click={(ev) => onClick(ev, 1)}>
                         <FontAwesomeIcon icon={faPlus}/>
                     </RoundButton>
                 </div>
