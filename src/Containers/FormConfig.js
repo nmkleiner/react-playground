@@ -1,16 +1,46 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import UserAnswersContext from "../Context/UserAnswersContext";
 import {InputComponents, InputTypes} from "../Enums/InputTypes";
 import {faAngular, faReact, faVuejs} from "@fortawesome/free-brands-svg-icons";
+import StorageService from "../Services/StorageService";
 
 const FormConfig = (props) => {
+
+
     const [nameState, setName] = useState("");
     const [emailState, setEmail] = useState("");
     const [experienceState, setExperience] = useState("");
     const [frameworkState, setFramework] = useState("");
     const [fullstackState, setFullstack] = useState("");
-    const [salaryState, setSalary] = useState(15);
+    const [salaryState, setSalary] = useState(0);
     const [startDateState, setStartDate] = useState("");
+    const formStates = [
+        {state: nameState, setState: setName},
+        {state: emailState, setState: setEmail},
+        {state: experienceState, setState: setExperience},
+        {state: frameworkState, setState: setFramework},
+        {state: fullstackState, setState: setFullstack},
+        {state: salaryState, setState: setSalary},
+        {state: startDateState, setState: setStartDate},
+    ];
+
+    useEffect(() => {
+        formStates.forEach((formState, index) => {
+            const savedState = StorageService.loadFromStorage(`form_state_${index}`);
+            console.log(savedState);
+            if (savedState) {
+                formState.setState(savedState);
+            }
+        });
+    }, []);
+
+    useEffect(() => {
+        formStates.forEach((formState, index) => {
+            if (formState.state) {
+                StorageService.saveToStorage(`form_state_${index}`, formState.state);
+            }
+        });
+    });
 
 
     const stages = [

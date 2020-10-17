@@ -3,9 +3,9 @@ import classes from "./style.module.scss";
 import InputLabel from "./InputLabel/InputLabel";
 
 const InputField = (props) => {
-    const {id, question, type, value, setAnswer, enter, register, rules, error} = props;
+    const {id, question, type, answer, setAnswer, enter, register, rules, error} = props;
     const [labelFloatingState, setLabelFloating] = useState(false);
-
+    console.log(answer);
     const handleFocus = () => {
         setLabelFloating(true);
     };
@@ -23,16 +23,16 @@ const InputField = (props) => {
     };
 
     const onKeyDown = (event) => {
-        if (event.key === "Enter" && value) {
+        if (event.key === "Enter" && answer) {
             enter();
         }
     };
 
     useEffect(() => {
-        if (value !== "" && value !== undefined) {
+        if (answer !== "" && answer !== undefined) {
             setLabelFloating(true);
         }
-    }, []);
+    }, [answer]);
 
     return (
         <div className={classes.InputField}>
@@ -48,11 +48,11 @@ const InputField = (props) => {
                 onChange={onChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-                value={value}
+                value={answer}
                 onKeyDown={onKeyDown}
             />
 
-            {error && <p className={classes.feedback} >error</p>}
+            {error && <p className={classes.feedback}>error</p>}
         </div>
     );
 };

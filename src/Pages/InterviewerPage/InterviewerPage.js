@@ -41,7 +41,7 @@ const InterviewerPage = () => {
                     {
                         stages.map((stage, idx) => {
                             const error = errors[stage.id];
-
+                            console.log(stage);
                             return idx === stageIndex ?
                                 <DynamicInput error={error} register={register} key={stage.id} {...stage}/>
                                 :
