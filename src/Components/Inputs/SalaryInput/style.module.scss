@@ -1,3 +1,4 @@
+@import "../../../Assets/Scss/Base/colors";
 
 .SalaryExpectation {
   display: flex;
@@ -8,6 +9,10 @@
     svg {
       font-weight: lighter;
       font-size: 14px;
+    }
+
+    .answer {
+      color: $primary;
     }
   }
 

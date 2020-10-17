@@ -9,7 +9,7 @@ const Header = () => {
     const name = userAnswersContext.name;
     const headingText = "React Playground";
     const nameMessage = `Hello ${name}!`;
-    const welcomeName = name && <p className={classes.welcome + " primary-color"}>{nameMessage}</p>;
+    const welcomeName = name && <p className={classes.welcome}>{nameMessage}</p>;
 
     return (
         <header className={classes.header}>

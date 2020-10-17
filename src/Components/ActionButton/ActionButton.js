@@ -3,11 +3,10 @@ import classes from "./style.module.scss";
 
 const ActionButton = (props) => {
     const {disabled, click, children} = props;
-    const classNames = [classes.ActionButton, "primary-background-color"].join(" ");
 
     return (
         <button
-            className={classNames}
+            className={classes.ActionButton}
             disabled={disabled}
             onClick={click}>
             {children}

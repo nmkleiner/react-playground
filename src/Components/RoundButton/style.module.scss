@@ -1,3 +1,5 @@
+@import "../../Assets/Scss/Base/colors";
+
 .RoundButton {
   width: 30px;
   height: 30px;
@@ -8,6 +10,7 @@
   box-shadow: 1px 3px #4A4A4A;
   background-color: transparent;
   opacity: 0.7;
+  color: $primary;
 
   &:hover {
     cursor: pointer;

@@ -1,3 +1,5 @@
+@import "../../../../Assets/Scss/Base/colors";
+
 .radioButtonWrapper {
   margin-bottom: 12px;
 
@@ -32,8 +34,8 @@
     border-radius: 50%;
     position: relative;
     transition: .3s;
-    border: 1px solid #4a4a4a;
-    box-shadow: inset 1px 1px 0 0 #ff0083;
+    border: 1px solid $solid;
+    box-shadow: inset 1px 1px 0 0 $primary;
 
     .innerCircle {
       display: block;
@@ -46,7 +48,7 @@
 
   &.checked {
     .innerCircle {
-      background-color: #ff0083;
+      background-color: $primary;
 
       width: 11px;
       height: 11px;
@@ -56,7 +58,7 @@
   &:hover {
     &:not(.checked) {
       .innerCircle {
-        background-color: #ff0083;
+        background-color: $primary;
         opacity: 0.1;
 
         width: 100%;

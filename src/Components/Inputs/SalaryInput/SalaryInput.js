@@ -20,7 +20,7 @@ const SalaryInput = ({text, type, answer, setAnswer}) => {
         <div className={classes.SalaryExpectation}>
             <div className={classes.row + " row"}>
                 <div className={classes.message}>{text}
-                    <span className="primary-color"> <FontAwesomeIcon icon={faShekelSign}/>{answer}K</span>
+                    <span className={classes.answer}> <FontAwesomeIcon icon={faShekelSign}/>{answer}K</span>
                 </div>
                 <div className={classes.buttonsWrapper}>
                     <RoundButton click={(ev) => onClick(ev, -1)}>

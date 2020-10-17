@@ -5,7 +5,6 @@ import InputLabel from "./InputLabel/InputLabel";
 const InputField = (props) => {
     const {id, question, type, value, setAnswer, enter, register, rules, error} = props;
     const [labelFloatingState, setLabelFloating] = useState(false);
-    const inputClasses = [classes.input, "primary-color"].join(" ");
 
     const handleFocus = () => {
         setLabelFloating(true);
@@ -42,7 +41,7 @@ const InputField = (props) => {
                 isFloating={labelFloatingState}
             />
             <input
-                className={inputClasses}
+                className={classes.input}
                 name={id}
                 ref={register(rules)}
                 type={type}

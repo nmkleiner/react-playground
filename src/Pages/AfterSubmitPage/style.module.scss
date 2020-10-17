@@ -1,3 +1,5 @@
+@import "../../Assets/Scss/Base/colors";
+
 .AfterSubmitPage {
   display: flex;
   flex-direction: column;
@@ -8,11 +10,11 @@
     width: 320px;
     height: 320px;
     display: flex;
-    border: 1px solid #ff0083;
+    border: 1px solid $primary;
     border-radius: 500px;
 
     .text {
-      color: #ff0083;
+      color: $primary;
       font-size: 24px;
       display: block;
       height: fit-content;

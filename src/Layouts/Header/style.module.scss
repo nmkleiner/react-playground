@@ -1,3 +1,4 @@
+@import "../../Assets/Scss/Base/colors";
 
 .header {
   position: relative;
@@ -24,6 +25,7 @@
     text-transform: capitalize;
     font-weight: bold;
     margin-right: 1px;
+    color: $primary;
     cursor: default;
   }
 
