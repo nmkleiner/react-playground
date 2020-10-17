@@ -9,11 +9,8 @@ const SalaryInput = ({text, type, answer, setAnswer}) => {
 
     const onClick = (ev, num) => {
         ev.preventDefault();
-
         const updatedAnswer = answer + num;
-        if (updatedAnswer > 10) {
-            setAnswer(updatedAnswer);
-        }
+        setAnswer(updatedAnswer);
     };
 
     return (

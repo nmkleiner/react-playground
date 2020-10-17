@@ -9,10 +9,13 @@
     svg {
       font-weight: lighter;
       font-size: 14px;
+      margin-left: 20px;
     }
 
     .answer {
       color: $primary;
+      display: inline-block;
+      margin-right: 5px;
     }
   }
 
