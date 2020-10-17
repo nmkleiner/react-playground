@@ -1,18 +1,10 @@
--put global styles in Assets directory
--use scss vars for color management
 -get better buttons for salary expectations (font awesome? better backgroundColor? cleaner look?)
+
 -save in local storage every step of the way, load back on refresh
 -add duplicator question for backend tools
 -mobile adjustments
+-add ts
 backend:
 -save to db after submit
 -send email after submit
--
--
--
--
--
--
--
--
--
+
