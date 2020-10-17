@@ -1,7 +1,6 @@
 -get better buttons for salary expectations (font awesome? better backgroundColor? cleaner look?)
+-add duplicator question for backend tools (think it through, there's multiple options here"
 
--save in local storage every step of the way, load back on refresh
--add duplicator question for backend tools
 -mobile adjustments
 -add ts
 backend:
